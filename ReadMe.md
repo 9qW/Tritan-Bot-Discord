@@ -25,7 +25,7 @@ Tritan Bot </h2>
 
 <h2> Important: Read Me</h2>
 
-You can self-host Tritan Bot, however you must follow the licensing by not changing any origional credits- as well as giving credit in your version of the bot via embed footers, website footers, and any other place deemed worthy by the creator. The creator has full discression to take away privileges to host the bot yourself, and if you fail to comply with the licensing legal actions may be taken. I have no problem making my creation open souce for learning purposes, as long as you contribute for any changes via a pull request and you give credit to my github page as the creator of the bot and website. T
+You can self-host Tritan Bot, however you must follow the licensing by not changing any origional credits- as well as giving credit in your version of the bot via embed footers, website footers, and any other place deemed worthy by the creator. The creator has full discression to take away privileges to host the bot yourself, and if you fail to comply with the licensing legal actions may be taken. I have no problem making my creation open souce for learning purposes, as long as you contribute for any changes via a pull request and you give credit to my github page as the creator of the bot and website. 
 
 <h2>Can I add Tritan Bot to my server?</h2>
 
@@ -111,7 +111,7 @@ Probably not. Tritan Bot has enough moving pieces that running a local version i
 
 <h2> Note: </h2>
 
-`As the creator and developer, I fully 100% support running this through docker. Do as you wish, I've included instructions for both the docker-compose and standalone way.`
+```As the creator and developer, I fully 100% support running this through docker. Do as you wish, I've included instructions for both the docker-compose and standalone way.```
 
 <h2> Getting Started  - Standalone</h2>
 
