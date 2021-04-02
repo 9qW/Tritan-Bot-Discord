@@ -10,7 +10,7 @@ In order to receive this license, you have to agree
 to its rules. Those rules are both obligations under
 that agreement and conditions to your license. Don't do
 anything with this software that triggers a rule you can't
-or won't follow.
+or won't follow. Every self-hosted version of this code MUST be in a public repo, which started as a fork from this original repo. 
 
 ## Notices
 
