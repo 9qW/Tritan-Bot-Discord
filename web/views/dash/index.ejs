@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang=en>
+  <head> 
+    <%- include('../partials/home/head') %> 
+      <header> 
+        <%- include('../partials/home/nav') %> 
+          <div class="bg-dark landing-sass-header-content" style=background-image:url(/assets/img/header-bg2.png)> 
+            <div class=container>
+            </div>
+          </div>
+          </header>
+        <main>
+          <div class=container>
+            <section class=mb-5>
+              <div class=row>
+                <div class=col>
+                  <style>.server-button{
+                    text-decoration:none!important;
+                    color:#fff;
+                    background-color:#2b2e4a;
+                    padding:10px;
+                    border-radius:3px;
+                    transition:.5s all ease;
+                    float:right;
+                    margin-left:22px}
+                    .server-button:hover{
+                      text-decoration:none!important;
+                      color:#fff;
+                      background-color:#1d2124;
+                      padding:10px;
+                      border-radius:5px}
+                    .server-name{
+                      padding-top:25px;
+                      padding-left:15px}
+                  </style>
+                  <div class=container>
+                    <div id=layoutSidenav_content>
+                      <main>
+                        <div class=container-fluid>
+                          <ol class="mb-4 breadcrumb">
+                            <li class=breadcrumb-item>
+                              <a href=/ >Home
+                              </a>
+                            <li class=breadcrumb-item style=color:#fff>
+                              <a href=/dashboard>Dashboard
+                              </a>
+                          </ol>
+                          <div class="mb-4 card">
+                            <div class=card-body>Please select a guild to configure.
+                            </div>
+                          </div>
+                          <br> 
+                          <% if(isDeveloper){%> 
+                            <div class="mb-4 card">
+                               <div class="mb-4 card">
+                                          <div class=card-header style=color:#fff;background-color:#2b2e4a>
+                                            <i aria-hidden=true class="fa fa-wrench">
+                                            </i> Developer Shortcuts
+                                          </div>
+                                          </div>
+                              <div class=card-body>
+                                <center>
+                                  <p>
+                                    <b>Welcome 
+                                      <%=user.username %>!
+                                        </b>
+                                      <br>I've noticed that you're signed in to the user endpoint, is this on purpose?
+                                      <div class=table-responsive>
+                                        <table class="table table"cellspacing=0 width=100%>
+                                          <tr>
+                                            <th>
+                                              <center>• 
+                                                <a href=/admin>Developer Portal
+                                                </a>
+                                                </table>
+                                          </div>
+                                          </div>
+                                      </div> 
+                                      <%}%> 
+                                        <div class="mb-4 card">
+                                          <div class=card-header style=color:#fff;background-color:#2b2e4a>
+                                            <i aria-hidden=true class="fa fa-server">
+                                            </i> User Data
+                                          </div>
+                                          <center>
+                                            <table class=server-card>
+                                              <tr>
+                                                <th>
+                                                  <img height=100px src="https://cdn.discordapp.com/avatars/<%=user.id %>/<%=user.avatar %>"style="border-radius:50%;float:left;padding:10px 10px">
+                                                <th>
+                                                  <h5>
+                                                    <b> 
+                                                      <%=user.username %># 
+                                                        <%=user.discriminator %> 
+                                                          <% if(!isDeveloper){%> 
+                                                            <span class="badge badge-dark">User 
+                                                            </span> 
+                                                            <%}%> 
+                                                              <% if(isDeveloper){%> 
+                                                                <span class="badge badge-dark">Developer 
+                                                                </span> 
+                                                                <%}%> 
+                                                                  <tr>
+                                                                    <div class=table-responsive>
+                                                                      <table class="table table"cellspacing=0 width=100%>
+                                                                        <center>
+                                                                          <a href=/api/v1/me>Your Data
+                                                                          </a>
+                                                                          <center>
+                                                                            <a href=/api/v1/data-removal>Data Removal
+                                                                            </a>
+                                                                            </table>
+                                                                        </center>
+                                                                        </div>
+                                                                      <div class="mb-4 card">
+                                                                        <div class=card-header style=color:#fff;background-color:#2b2e4a>
+                                                                          <i aria-hidden=true class="fa fa-list-alt">
+                                                                          </i> Guild Selector
+                                                                        </div>
+                                                                        <center>
+                                                                          <table class=server-card> 
+                                                                            <% for(i of guilds){%> 
+                                                                              <tr>
+                                                                                <th>
+                                                                                  <img height=50px src="<%if(i.guild.icon){%> https://cdn.discordapp.com/icons/<%=i.guild.id %>/<%=i.guild.icon %>.png <%}else{%> https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdiscordapp.com%2Fassets%2Fdd4dbc0016779df1378e7812eabaa04d.png&f=1&nofb=1.png <%}%>"style=border-radius:50px>
+                                                                                <th>
+                                                                                  <p class=server-name> 
+                                                                                    <%=i.guild.name %> 
+                                                                                      </th> 
+                                                                                    <% if (i.badges) { %>
+                                                                                      <span class="badge badge-soft-info">
+                                                                                        <%=i.badges %>
+                                                                                          </span>
+                                                                                        </td>
+                                                                                      <% } %>
+                                                                                        <% if(i.isAuthenticated){%> 
+                                                                                          <th>
+                                                                                            <a href="/dashboard/<%=i.guild.id %>"class=server-button style=color:#fff>Manage
+                                                                                            </a>
+                                                                                          </th> 
+                                                                                          <%}else{%> 
+                                                                                            <th>
+                                                                                              <a href=/invite class=server-button style=background-color:#2c2c2c>Setup
+                                                                                              </a>
+                                                                                            </th> 
+                                                                                            <%}%> 
+                                                                                              </tr> 
+                                                                                            <%}%> 
+                                                                                              </table>
+                                                                                            </center>
+                                                                                          </div>
+                                                                                        <br>
+                                                                                        <br>
+                                                                                        <div class="mb-4 card">
+                                                                                          <div class=card-header style=color:#fff;background-color:#2b2e4a>
+                                                                                            <i aria-hidden=true class="fa fa-server">
+                                                                                            </i> Bot Statistics
+                                                                                          </div>
+                                                                                          <center>
+                                                                                            <table class=server-card>
+                                                                                              <center>
+                                                                                                <canvas height=400 id=myChart width=400>
+                                                                                                </canvas>
+                                                                                              </center>
+                                                                                              <script src=https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js>
+                                                                                              </script>
+                                                                                              <script>var ctx=document.getElementById("myChart"),myChart=new Chart(ctx,{
+                                                                                                  type:"bar",data:{
+                                                                                                    labels:["Total Guilds","Total Channels","Total Infractions"],datasets:[{
+                                                                                                      label:"Tritan Bot",data:[ <%=total_guilds %>, <%=total_channels %>, <%=total_infractions %>],backgroundColor:["rgba(255, 99, 132, 0.2)","rgba(54, 162, 235, 0.2)","rgba(255, 206, 86, 0.2)","rgba(75, 192, 192, 0.2)","rgba(153, 102, 255, 0.2)","rgba(255, 159, 64, 0.2)"],borderColor:["rgba(255, 99, 132, 1)","rgba(54, 162, 235, 1)","rgba(255, 206, 86, 1)","rgba(75, 192, 192, 1)","rgba(153, 102, 255, 1)","rgba(255, 159, 64, 1)"],borderWidth:1}
+]}
+                                                                                                  ,options:{
+                                                                                                    maintainAspectRatio:!1,layout:{
+                                                                                                      padding:{
+                                                                                                        left:10,right:25,top:25,bottom:0}
+                                                                                                    }
+                                                                                                    ,legend:{
+                                                                                                      display:!1}
+                                                                                                    ,tooltips:{
+                                                                                                      backgroundColor:"#2c2f34",bodyFontColor:"#FFF",titleMarginBottom:10,titleFontColor:"#FFF",titleFontSize:14,borderColor:"#2c2f34",borderWidth:1,xPadding:15,yPadding:15,displayColors:!1,intersect:!1,mode:"index",caretPadding:10}
+                                                                                                  }
+                                                                                                }
+)</script>
+                                                                                            </table>
+                                                                                          </center>
+                                                                                        </div>
+                                                                                        </div>
+                                                                                      </div>
+                                                                              </div>
+                                                                              </div>
+                                                                            </div>
+                                                                          </div>
+                                                                        </main> 
+                                                                      <%- include('../partials/home/footer') %> 
+                                                                        <%- include('../partials/home/end') %>

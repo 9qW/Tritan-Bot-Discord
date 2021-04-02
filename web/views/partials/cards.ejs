@@ -1,0 +1,69 @@
+<div class="card mb-4">
+  <div class="card-body">Please select a menu below to be redirected.</div>
+</div>
+<center>
+  <div class="card-dropdown">
+    <div class="card_bg">Home</div>
+    <a href="/dashboard/<%=guild %>/" class="cardlink">
+      <div class="card_fg">
+        <h1>Click here to be taken back to the guild's home page.</h1>
+      </div>
+    </a>
+  </div>
+  <div class="card-dropdown">
+    <div class="card_bg">Settings</div>
+    <a href="/dashboard/<%=guild %>/settings" class="cardlink">
+      <div class="card_fg">
+        <h1>Click here to be taken to the bot's settings for configuration.</h1>
+      </div>
+    </a>
+  </div>
+  <div class="card-dropdown">
+    <div class="card_bg">Infractions</div>
+    <a href="/dashboard/<%=guild %>/infractions" class="cardlink">
+      <div class="card_fg">
+        <h1>Click here to view this guild's infractions.</h1>
+      </div>
+    </a>
+  </div>
+  <div class="card-dropdown">
+    <div class="card_bg">Members</div>
+    <a href="/dashboard/<%=guild %>/members" class="cardlink">
+      <div class="card_fg">
+        <h1>Click here to view this guild's member information.</h1>
+      </div>
+    </a>
+  </div>
+  <div class="card-dropdown">
+    <div class="card_bg">Ranks</div>
+    <a href="/public/<%=guild %>/ranks" class="cardlink">
+      <div class="card_fg">
+        <h1>Click here to view the full rank leaderboard for this guild.</h1>
+      </div>
+    </a>
+  </div>
+  <div class="card-dropdown">
+    <div class="card_bg">Messages</div>
+    <a href="/public/<%=guild %>/messages" class="cardlink">
+      <div class="card_fg">
+        <h1>Click here to view the full message count leaderboard for this guild.</h1>
+      </div>
+    </a>
+  </div>
+  <div class="card-dropdown">
+    <div class="card_bg">Embeds</div>
+    <a href="/dashboard/<%=guild %>/embed-generator" class="cardlink">
+      <div class="card_fg">
+        <h1>Click here to manage and create embeds easily.</h1>
+      </div>
+    </a>
+  </div>
+  <div class="card-dropdown">
+    <div class="card_bg">Guild Data</div>
+    <a href="/api/v1/guild/<%=guild %>" class="cardlink">
+      <div class="card_fg">
+        <h1>Click here to view all the data Tritan Bot has stored from your guild.</h1>
+      </div>
+    </a>
+  </div>
+</center>

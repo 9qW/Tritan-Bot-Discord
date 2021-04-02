@@ -1,0 +1,46 @@
+version: "3.7"
+services:
+  bot:
+    container_name: Tritan-Bot
+    restart: always
+    build:
+      context: ./bot
+      dockerfile: Dockerfile
+    network_mode: "host"
+    dns:
+      - 1.1.1.1
+      - 1.0.0.1
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:65535"]
+      interval: 5s
+      timeout: 10s
+      retries: 60
+      start_period: 60s
+
+  web:
+    container_name: Tritan-Web
+    restart: always
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    network_mode: "host"
+    dns:
+      - 1.1.1.1
+      - 1.0.0.1
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 5s
+      timeout: 10s
+      retries: 60
+      start_period: 60s
+
+  slash:
+    container_name: Tritan-Slash
+    restart: always
+    build:
+      context: ./slash
+      dockerfile: Dockerfile
+    network_mode: "host"
+    dns:
+      - 1.1.1.1
+      - 1.0.0.1

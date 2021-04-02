@@ -1,0 +1,5 @@
+discord
+asyncio
+discord-py-slash-command
+jishaku
+pymongo

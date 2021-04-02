@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> 
+    <%- include('../partials/home/head') %>
+      </head> 
+    <header> 
+      <%- include('../partials/home/nav') %>
+        <div class="bg-dark landing-sass-header-content" style=background-image:url(/assets/img/header-bg2.png)> 
+          <div class="container">
+            <div class="container-fluid">
+              <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"> 
+                  <a href="/">Home 
+                  </a>
+                </li>
+                <li class="breadcrumb-item" style="color:white"> 
+                  <a href='/dashboard'>Dashboard 
+                  </a>
+                </li>
+              </ol> 
+              <%- include('../partials/cards') %>
+                </div>
+            </div>
+          </div> 
+          </header> 
+        <main>
+          <div class="container"> 
+            <section class="mb-5">
+              <div class="row">
+                <div class="col">
+                  <style>.server-button{
+                    text-decoration:none !important;
+                    color:white;
+                    background-color:#7289DA;
+                    padding:10px;
+                    border-radius:3px;
+                    transition:0.5s all ease;
+                    float:right;
+                    margin-left:22px}
+                    .server-button:hover{
+                      text-decoration:none !important;
+                      color:white;
+                      background-color:#1d2124;
+                      padding:10px;
+                      border-radius:5px}
+                    .server-name{
+                      padding-top:25px;
+                      padding-left:15px}
+                  </style>
+                  </head>
+                <div id="layoutSidenav_content"> 
+                  <main> 
+                    <br> 
+                    <% if(isDeveloper){%>
+                      <div class="card mb-4">
+                        <div class="card-header" style="color: white; background-color: #2b2e4a;"> 
+                          <i class="fa fa-wrench" aria-hidden="true"> 
+                          </i> Developer Options
+                        </div>
+                        <div class="card-body">
+                          <p> Welcome 
+                            <%=user.username %>! Some developer shortcuts are listed for you below.
+                              </p>
+                          <div class="table-responsive">
+                            <table class="table table" width="100%" cellspacing="0">
+                              <thead>
+                                <tr>
+                                  <th> 
+                                    <a href='/api/v1/guild/<%=guild %>'>Guild Data 
+                                    </a>
+                                  </th>
+                                </tr>
+                                <tr>
+                                  <th> 
+                                    <a href='/admin/flags/<%=guild %>'>Guild Flags 
+                                    </a>
+                                  </th>
+                                </tr>
+                                <tr>
+                                  <th> 
+                                    <a href='/admin/flags/<%=guild %>/leave'>Leave Guild 
+                                    </a> (This is logged.)
+                                  </th>
+                                </tr>
+                              </thead>
+                            </table>
+                          </div>
+                        </div>
+                      </div> 
+                      <%}%>
+                        <div class="card mb-4">
+                          <div class="card-header" style="color: white; background-color: #2b2e4a;"> 
+                            <i class="fa fa-info-circle" aria-hidden="true"> 
+                            </i> Guild Info
+                          </div>
+                          <div class="card-body">
+                            <div class="table-responsive">
+                              <table class="table table" width="100%" cellspacing="0">
+                                <thead>
+                                  <tr>
+                                    <th>Guild Name
+                                    </th>
+                                    <td> 
+                                      <%=discord_guild.name %>
+                                        </td>
+                                  </tr>
+                                  <tr>
+                                    <th>Guild ID
+                                    </th>
+                                    <td> 
+                                      <%=discord_guild.id %>
+                                        </td>
+                                  </tr>
+                                  <!--    <tr>
+<th>Owner Name
+</th>
+<td> 
+</td>
+</tr> -->
+                                  <tr>
+                                    <th>Owner ID
+                                    </th>
+                                    <td> 
+                                      <%=discord_guild.ownerID %>
+                                        </td>
+                                  </tr>
+                                  <tr>
+                                    <th>Icon
+                                    </th>
+                                    <td> 
+                                      <img src="<%=discord_guild.iconURL() %>" width="50px" length='50px'> 
+                                  </a>
+                                  </td>
+                                <tr>
+                                  <th>Icon URL
+                                  </th>
+                                  <td> 
+                                    <a href="<%=discord_guild.iconURL() %>"> 
+                                      <%=discord_guild.iconURL() %> 
+                                        </a>
+                                      </td>
+                                </tr>
+                                <tr>
+                                  <th>Server Region
+                                  </th>
+                                  <td> 
+                                    <%=region %>
+                                      </td>
+                                </tr>
+                                <tr>
+                                  <th>Verification Level
+                                  </th>
+                                  <td> 
+                                    <%=verificationLevel %>
+                                      </td>
+                                </tr>
+                                <th>Created
+                                </th>
+                                <td> 
+                                  <%=discord_guild.createdAt %>
+                                    </td>
+                                  <tr>
+                                    <th>Discord Partner
+                                    </th>
+                                    <td> 
+                                      <% if(partnered){%> 
+                                        <span class="badge badge-success">True 
+                                        </span> 
+                                        <%}%> 
+                                          <% if(!partnered){%> 
+                                            <span class="badge badge-danger">False 
+                                            </span> 
+                                            <%}%>
+                                              </td>
+                                            </tr>
+                                          </tr>
+                                        </thead>
+                              </table>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="card mb-4">
+                            <div class="card-header" style="color: white; background-color: #2b2e4a;"> 
+                              <i class="fa fa-certificate" aria-hidden="true"> 
+                              </i> Tritan Badges
+                            </div>
+                            <div class="card-body">
+                              <div class="table-responsive">
+                                <table class="table table" width="100%" cellspacing="0">
+                                  <thead>
+                                    <tr>
+                                      <th>Awarded Badges
+                                      </th>
+                                      <td> 
+                                        <span class="badge badge-info"> 
+                                          <%=guildData.badges ? guildData.badges : "None" %> 
+                                            </span>
+                                          </td>
+                                    </tr>
+                                    <tr>
+                                      <th>Beta Status
+                                      </th>
+                                      <td> 
+                                        <% if(betaGuild){%> 
+                                          <span class="badge badge-success">True 
+                                          </span> 
+                                          <%}%> 
+                                            <% if(!betaGuild){%> 
+                                              <span class="badge badge-danger">False 
+                                              </span> 
+                                              <%}%>
+                                                </td>
+                                              </tr>
+                                            <tr>
+                                              <th>Premium Status
+                                              </th>
+                                              <td> 
+                                                <% if(is_premium){%> 
+                                                  <span class="badge badge-success">True 
+                                                  </span> 
+                                                  <%}%> 
+                                                    <% if(!is_premium){%> 
+                                                      <span class="badge badge-danger">False 
+                                                      </span> 
+                                                      <%}%>
+                                                        </td>
+                                                      </tr>
+                                                    <tr>
+                                                      <th>Blacklist Status
+                                                      </th>
+                                                      <td> 
+                                                        <% if(is_blacklisted){%> 
+                                                          <span class="badge badge-success">True 
+                                                          </span> 
+                                                          <%}%> 
+                                                            <% if(!is_blacklisted){%> 
+                                                              <span class="badge badge-danger">False 
+                                                              </span> 
+                                                              <%}%>
+                                                                </td>
+                                                              </tr>
+                                                            </thead>
+                                                          </table>
+                                                    </div>
+                                                    </div>
+                                                  </div>
+                                                <div class="card mb-4">
+                                                  <div class="card-header" style="color: white; background-color: #2b2e4a;"> 
+                                                    <i class="fa fa-bar-chart" aria-hidden="true"> 
+                                                    </i> Guild Stats
+                                                  </div>
+                                                  <div class="card-body">
+                                                    <center>
+                                                      <p> If you would like to add your own custom role stats, please view the settings tab.
+                                                      </p>
+                                                    </center>
+                                                    <center> 
+                                                      <canvas id="myChart" width="400" height="400"> 
+                                                      </canvas>
+                                                    </center> 
+                                                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js">
+                                                    </script> 
+                                                    <script>var ctx=document.getElementById('myChart');
+                                                      var myChart=new Chart(ctx,{
+                                                        type:'bar',data:{
+                                                          labels:['Bots','Roles','Emojis','Channels','Text Channels','Voice Channels','Member Count','Infraction Count',<%if(customStatsRole){
+                                                                  %>`Custom:<%=customStatsRole.name%>`<%}
+                                                                  %>],datasets:[{
+                                                                    label:"<%=discord_guild.name %>",data:[<%=botcount%>,<%=rolecount%>,<%=emojicount%>,<%=channelcount%>,<%=textchannels%>,<%=voicechannels%>,<%=membercount%>,<%=total_infractions%>,<%if(customStatsRole){
+                                                                                                           %><%=customStatsRole.members.size%><%}
+                                                                                                           %>],backgroundColor:['rgba(255, 99, 132, 0.2)','rgba(54, 162, 235, 0.2)','rgba(255, 206, 86, 0.2)','rgba(75, 192, 192, 0.2)','rgba(153, 102, 255, 0.2)','rgba(255, 159, 64, 0.2)'],borderColor:['rgba(255, 99, 132, 1)','rgba(54, 162, 235, 1)','rgba(255, 206, 86, 1)','rgba(75, 192, 192, 1)','rgba(153, 102, 255, 1)','rgba(255, 159, 64, 1)'],borderWidth:1}
+                                                                               ]}
+                                                        ,options:{
+                                                          maintainAspectRatio:false,layout:{
+                                                            padding:{
+                                                              left:10,right:25,top:25,bottom:0}
+                                                          }
+                                                          ,legend:{
+                                                            display:false}
+                                                          ,tooltips:{
+                                                            backgroundColor:"#2c2f34",bodyFontColor:"#FFF",titleMarginBottom:10,titleFontColor:'#FFF',titleFontSize:14,borderColor:'#2c2f34',borderWidth:1,xPadding:15,yPadding:15,displayColors:false,intersect:false,mode:'index',caretPadding:10,}
+                                                        }
+                                                      }
+                                                                           );
+                                                    </script> 
+                                                  </div>
+                                                </div>
+                                                <div class="card mb-4">
+                                                  <div class="card-header" style="color: white; background-color: #2b2e4a;"> 
+                                                    <i class="fa fa-hashtag" aria-hidden="true"> 
+                                                    </i> Channels
+                                                  </div>
+                                                  <div class="card-body">
+                                                    <div class="table-responsive">
+                                                      <table class="table table" id='dataTable' width="100%">
+                                                        <thead>
+                                                          <tr>
+                                                            <th>Position
+                                                            </th>
+                                                            <th>Name
+                                                            </th>
+                                                            <th>ID
+                                                            </th>
+                                                            <th>Type
+                                                            </th>
+                                                            <th>NSFW?
+                                                            </th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody> 
+                                                          <% discord_guild.channels.cache.forEach(channel=>{%>
+                                                            <tr>
+                                                              <td> 
+                                                                <%=channel.rawPosition %>
+                                                                  </td>
+                                                              <td># 
+                                                                <%=channel.name %>
+                                                                  </td>
+                                                              <td> 
+                                                                <%=channel.id %>
+                                                                  </td>
+                                                              <td> 
+                                                                <%=channel.type %>
+                                                                  </td>
+                                                              <td> 
+                                                                <%=channel.nsfw %>
+                                                                  </td>
+                                                            </tr> 
+                                                            <%}) %>
+                                                              </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="card mb-4">
+                                                    <div class="card-header" style="color: white; background-color: #2b2e4a;"> 
+                                                      <i class="fa fa-file-image-o" aria-hidden="true"> 
+                                                      </i> Server Emotes
+                                                    </div>
+                                                    <div class="card-body">
+                                                      <div class="table-responsive">
+                                                        <table class="table table" id='dataTable2' width="100%">
+                                                          <thead>
+                                                            <tr>
+                                                              <th>Emoji
+                                                              </th>
+                                                              <th>URL
+                                                              </th>
+                                                            </tr>
+                                                          </thead>
+                                                          <tbody> 
+                                                            <% for(i of emojis){%>
+                                                              <tr>
+                                                                <td> 
+                                                                  <img src='<%=i %>' style='height: 30px;'>
+                                                                </td>
+                                                                <td> 
+                                                                  <a href="<%=i %>"> 
+                                                                    <%=i %> 
+                                                                      </a>
+                                                                    </td>
+                                                              </tr> 
+                                                              <%}%>
+                                                                </tbody>
+                                                              </table>
+                                                          </div>
+                                                      </div>
+                                                    </div> 
+                                                    </section> 
+                                                  </main> 
+                                                <%- include('../partials/home/footer') %> 
+                                                  <%- include('../partials/home/end') %>

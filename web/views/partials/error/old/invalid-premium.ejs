@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html color-mode="dark" lang="en">
+  <%- include('../home/head') %> 
+    <header> 
+      <%- include('../home/nav') %> 
+        <main class='bg-dark' style="background-image: url('/assets/img/space-bg.png')"> 
+          <div class="container"> 
+            <div class="row justify-content-center"> 
+              <div class="col-lg-6"> 
+                <div class="text-center mt-4"> 
+                  <h1 style="color: white">(403) This page requires your guild to have premium.
+                  </h1> 
+                  <br/> 
+                  <p style="color: white"> If you believe something should be here contact us through our 
+                    <a href="/support">Discord.
+                    </a> Learn more about premium guilds 
+                    <a href='/#premium'>here
+                    </a>.
+                  </p>
+                  <br/> 
+                  <a href="/"> 
+                    <i class="fas fa-arrow-left mr-1">
+                    </i> Return Home 
+                  </a> 
+                  <br/> 
+                  <a href="/dashboard"> 
+                    <i class="fas fa-arrow-left mr-1">
+                    </i> Login 
+                  </a> 
+                </div>
+                <br/> 
+                <br/>
+              </div>
+            </div>
+          </div>
+        </main> 
+        <script src="/assets/js/three.min.js">
+        </script> 
+        <script src="/assets/js/vanta.net.min.js">
+        </script> 
+        <script>VANTA.NET({
+            el:"#eep",mouseControls:true,touchControls:true,gyroControls:true,scale:1.0,scaleMobile:1.0,color:0x7289da,backgroundColor:0x131b24,spacing:14.0}
+                         );
+        </script> 
+        <%- include('../../partials/home/footer') %> 
+          <%- include('../../partials/home/end') %>
+            </html>

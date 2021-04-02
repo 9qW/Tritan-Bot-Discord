@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en"> 
+  <head> 
+    <%- include('../../partials/home/head') %> 
+      </head> 
+    <header> 
+      <%- include('../../partials/home/nav') %> 
+          <div class="bg-dark landing-sass-header-content" style=background-image:url(/assets/img/header-bg2.png)> 
+          <div class="container"> 
+          </div>
+        </div>
+        </header> 
+      <main> 
+        <div class="container"> 
+          <section class="mb-5"> 
+            <div class="row"> 
+              <div class="col"> 
+                <style>.server-button{
+                  text-decoration: none !important;
+                  color: white;
+                  background-color: #2b2e4a;
+                  padding: 10px;
+                  border-radius: 3px;
+                  transition: 0.5s all ease;
+                  float: right;
+                  margin-left: 22px}
+                  .server-button:hover{
+                    text-decoration: none !important;
+                    color: white;
+                    background-color: #2b2e4a;
+                    padding: 10px;
+                    border-radius: 5px;
+                  }
+                  .server-name{
+                    padding-top: 25px;
+                    padding-left: 15px;
+                  }
+                </style> 
+                </head> 
+              <div class="container"> 
+                <div id="layoutSidenav_content"> 
+                  <main> 
+                    <div class="container-fluid"> 
+                      <ol class="breadcrumb mb-4"> 
+                        <li class="breadcrumb-item">
+                          <a href="/">Home
+                          </a>
+                        </li>
+                        <li class="breadcrumb-item" style="color:white">
+                          <a href='/admin'>Developer Panel
+                          </a>
+                        </li>
+                      </ol> 
+                      <div class="card mb-4"> 
+                        <div class="card-header" style="color: white; background-color: #2b2e4a;"> 
+                          <i class="fas fa-star mr-1">
+                          </i> Guild Badges 
+                        </div>
+                        <center> 
+                          <table class='server-card'> 
+                            <% for(i of guild){%> 
+                              <tr> 
+                                <th> 
+                                  <p class='server-name" style=' color: white '><%=i.guildName %> (ID: <%=i.guildID %>)</p></th> </tr></table> <br><table class='server-card '> <tr> <th><a class='server-button ' style='color: white ' href='/admin/flags/
+                                     <%=i .guildID %>/add-premium'>Add Premium
+                              </a> 
+                              </th> 
+                            <th>
+                              <a class='server-button' style='color: white' href='/admin/flags/<%=i.guildID %>/remove-premium'>Remove Premium
+                              </a>
+                            </th> 
+                            </tr>
+                          </table> 
+                        <br>
+                        <table class='server-card'> 
+                          <tr> 
+                            <th>
+                              <a class='server-button' style='color: white' href='/admin/flags/<%=i.guildID %>/add-support'>Add Support Server Guild
+                              </a>
+                            </th> 
+                            <th>
+                              <a class='server-button' style='color: white' href='/admin/flags/<%=i.guildID %>/remove-support'>Remove Support Server Guild
+                              </a>
+                            </th> 
+                          </tr>
+                        </table> 
+                        <br>
+                        <table class='server-card'> 
+                          <tr> 
+                            <th>
+                              <a class='server-button' style='color: white' href='/admin/flags/<%=i.guildID %>/add-early-supporter'>Add Early Supporter
+                              </a>
+                            </th> 
+                            <th>
+                              <a class='server-button' style='color: white' href='/admin/flags/<%=i.guildID %>/remove-early-supporter'>Remove Early Supporter
+                              </a>
+                            </th> 
+                          </tr>
+                        </table> 
+                        <br>
+                        <table class='server-card'> 
+                          <tr> 
+                            <th>
+                              <a class='server-button' style='color: white' href='/admin/flags/<%=i.guildID %>/add-contributer'>Add Contributer
+                              </a>
+                            </th> 
+                            <th>
+                              <a class='server-button' style='color: white' href='/admin/flags/<%=i.guildID %>/remove-contributer'>Remove Contributer
+                              </a>
+                            </th> 
+                          </tr>
+                        </table> 
+                        <br>
+                        <table class='server-card'> 
+                          <tr> 
+                            <th>
+                              <a class='server-button' style='color: white' href='/admin/flags/<%=i.guildID %>/blacklist'>Add to Blacklist
+                              </a>
+                            </th> 
+                            <th>
+                              <a class='server-button' style='color: white' href='/admin/flags/<%=i.guildID %>/unblacklist'>Remove from Blacklist
+                              </a>
+                            </th> 
+                          </tr>
+                        </table> 
+                        <br>
+                        <table class='server-card'> 
+                          <tr> 
+                            <th>
+                              <a class='server-button' style='color: white' href='/admin/flags/<%=i.guildID %>/add-beta'>Add to Beta
+                              </a>
+                            </th> 
+                            <th>
+                              <a class='server-button' style='color: white' href='/admin/flags/<%=i.guildID %>/remove-beta'>Remove from Beta
+                              </a>
+                            </th> 
+                          </tr>
+                        </table> 
+                        <%}%> 
+                          </table> 
+                        </center> 
+                    </div>
+                    </div>
+                  </main> 
+                <%- include('../../partials/home/footer') %> 
+                  <%- include('../../partials/home/end') %>

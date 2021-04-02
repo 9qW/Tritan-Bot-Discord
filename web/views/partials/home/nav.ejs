@@ -1,0 +1,155 @@
+<nav class="navbar navbar-expand-lg navbar-lg navbar-dark bg-dark" style="background-image: url('/assets/img/header-bg2.png')">
+
+  <div class="container"> 
+    <a class="navbar-brand" href="/"> 
+      <img src="/assets/img/logo.png" width="70px" width="70px" alt="Tritan Bot"/> 
+    </a> 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#leadUIMainNav" aria-controls="leadUIMainNav" aria-expanded="false" aria-label="Toggle navigation"> 
+      <i data-feather="menu"> 
+      </i> 
+    </button>
+    <div class="collapse navbar-collapse" id="leadUIMainNav">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item"> 
+          <a class="nav-link" href="/">Home 
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+        <li class="nav-item"> 
+          <a class="nav-link" href="/about">About 
+          </a>
+        </li>
+        <li class="nav-item"> 
+          <a class="nav-link" href="/#premium">Premium 
+          </a>
+        </li>
+        <li class="nav-item dropdown"> 
+          <a class="nav-link dropdown" href="#" data-toggle="dropdown">Help 
+            <i class="fa fa-chevron-down" aria-hidden="true"> 
+            </i> 
+          </a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"> 
+              <a href="/docs" class="nav-link">Documentation 
+              </a>
+            </li>
+            <li class="dropdown-item"> 
+              <a href="/support" class="nav-link">Support Server 
+              </a>
+            </li>
+            <li class="dropdown-item"> 
+              <a href="/contact" class="nav-link">Contact Us
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown"> 
+          <a class="nav-link dropdown" href="#" data-toggle="dropdown">Legal 
+            <i class="fa fa-chevron-down" aria-hidden="true"> 
+            </i> 
+          </a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"> 
+              <a href="/privacy-policy" class="nav-link">Privacy Policy 
+              </a>
+            </li>
+            <li class="dropdown-item"> 
+              <a href="/terms-of-service" class="nav-link">Terms of Service 
+              </a>
+            </li>
+            <li class="dropdown-item"> 
+              <a href="/api/v1/data-removal" class="nav-link">Data Removal 
+              </a>
+            </li>
+          </ul>
+        <li class="nav-item dropdown"> 
+          <a class="nav-link dropdown" href="#" data-toggle="dropdown">More 
+            <i class="fa fa-chevron-down" aria-hidden="true"> 
+            </i> 
+          </a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"> 
+              <a href="/status" class="nav-link">Status 
+              </a>
+            </li>
+            <li class="dropdown-item"> 
+              <a href="/blog" class="nav-link">Blog 
+              </a>
+            </li>
+            <li class="dropdown-item"> 
+              <a href="/api" class="nav-link">API 
+              </a>
+            </li>
+            <li class="dropdown-item"> 
+              <a href="https://bin.tritan.gg" class="nav-link">Codebin 
+              </a>
+            </li>
+            <li class="dropdown-item"> 
+              <a href="https://search.tritan.gg" class="nav-link">Search
+              </a>
+            </li>
+            <li class="dropdown-item"> 
+              <a href="https://hosting.tritan.gg" class="nav-link">Hosting
+              </a>
+            </li>
+          </ul>
+        </li>
+        </li>
+      </li>
+    </ul> 
+  <% if (!user){%>
+    <div class="form-inline"> 
+      <a href="/login"> 
+        <button class="btn btn-outline-light" style="color: white;"> 
+          <i class="fa fa-user" aria-hidden="true"> 
+          </i> Login 
+        </button> 
+      </a>
+    </div> 
+    <%}%> 
+      <% if (user){%>
+        <div class="form-inline">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item dropdown"> 
+              <a class="nav-link dropdown" href="#" data-toggle="dropdown"> 
+                <img src='https://cdn.discordapp.com/avatars/<%=user.id %>/<%=user.avatar %>' style='width: 45px; border-radius: 50%; padding: 5px;'> 
+                <%=user.username %> 
+                  <span style='color: #5d3fff'># 
+                    <%=user.discriminator %> 
+                      </span> 
+                    <i class="fa fa-chevron-down" aria-hidden="true"> 
+                    </i> 
+                    <% if(!isDeveloper){%> 
+                      <span class="badge badge-info"> User 
+                      </span> 
+                      <%}%> 
+                        <% if(isDeveloper){%> 
+                          <span class="badge badge-info"> Developer 
+                          </span> 
+                          <%}%> 
+                            </a>
+                          <ul class="dropdown-menu">
+                            <li class="dropdown-item"> 
+                              <a href="/dashboard" class="nav-link">Dashboard 
+                              </a>
+                            </li> 
+                            <% if(isDeveloper){%>
+                              <li class="dropdown-item"> 
+                                <a href="/admin" class="nav-link">Developer Portal 
+                                </a>
+                              </li> 
+                              <%}%>
+                                <li class="dropdown-item"> 
+                                  <a href="/api/v1/me" class="nav-link">My Data 
+                                  </a>
+                                </li>
+                                <li class="dropdown-item"> 
+                                  <a href="/logout" class="nav-link">Logout 
+                                  </a>
+                                </li>
+                                </ul> 
+                              <%}%> 
+                                <br>
+                                </div> 
+                              </nav>
+                            </div> 

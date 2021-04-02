@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang=en>
+  <head> 
+    <%- include('../partials/home/head') %> 
+      <header> 
+        <%- include('../partials/home/nav') %> 
+          <div class="bg-dark landing-sass-header-content">
+            <div class=container>
+              <div class=container-fluid>
+                <ol class="mb-4 breadcrumb">
+                  <li class=breadcrumb-item>
+                    <a href=/ >Home
+                    </a>
+                  <li class=breadcrumb-item style=color:#fff>
+                    <a href=/dashboard>Dashboard
+                    </a>
+                </ol> 
+                <% if(savedChanges){%> 
+                  <div class=col-mb-4>
+                    <div class="alert alert-dismissible fade mb-12 show alert-success"role=alert>
+                      <i class=mr-2 data-feather=alert-circle>
+                      </i> Your changes have been saved. 
+                      <button class=close type=button aria-label=Close data-dismiss=alert>
+                        <span aria-hidden=true>×
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                  <%}%> 
+                    <% if(vanity_in_use){%> 
+                      <div class=col-mb-4>
+                        <div class="alert alert-dismissible fade mb-12 show alert-warning"role=alert>
+                          <i class=mr-2 data-feather=alert-circle>
+                          </i> The vanity url you have selected is already in use, please note your changes have not been saved in regards to the vanity section. 
+                          <button class=close type=button aria-label=Close data-dismiss=alert>
+                            <span aria-hidden=true>×
+                            </span>
+                          </button>
+                        </div>
+                      </div>
+                      <%}%> 
+                        <%- include('../partials/cards') %> 
+                          </div>
+                        </div>
+                      </div>
+                    </header>
+                  <main>
+                    <div class=container>
+                      <section class=mb-5>
+                        <div class=row>
+                          <div class=col>
+                            <style>.server-button{
+                              text-decoration:none!important;
+                              color:#fff;
+                              background-color:#7289DA;
+                              padding:10px;
+                              border-radius:3px;
+                              transition:.5s all ease;
+                              float:right;
+                              margin-left:22px}
+                              .server-button:hover{
+                                text-decoration:none!important;
+                                color:#fff;
+                                background-color:#1d2124;
+                                padding:10px;
+                                border-radius:5px}
+                              .server-name{
+                                padding-top:25px;
+                                padding-left:15px}
+                            </style>
+                            <div id=layoutSidenav_content>
+                              <main>
+                                <br>
+                                <div class="mb-4 card">
+                                  <div class=card-header style=color:#fff;background-color:#2b2e4a>
+                                    <i class="fa fa-sliders"aria-hidden=true>
+                                    </i> Guild Settings
+                                  </div>
+                                  <div class=card-body>
+                                    <div class=table-responsive>
+                                      <form action="/dashboard/<%=guild %>/settings"method=POST>
+                                        <div class=row>
+                                          <div class=col-md-6>
+                                            <div class=lead-demo>
+                                              <div class=form-group>
+                                                <div class=form-group>
+                                                  <p>Prefix: 
+                                                    <input class=form-control name=prefix value="<%=prefix %>">
+                                                </div>
+                                              </div>
+                                              <div class=form-group>
+                                                <div class=form-group>
+                                                  <p>Muted Role: 
+                                                    <b> 
+                                                      <%=mute_role ? discord.guilds.cache.get(guild).roles.cache.get(mute_role).name : "No Role Set" %> 
+                                                        </b>
+                                                      <select class=form-control name=mute_role>
+                                                        <option>
+                                                        </option> 
+                                                        <% discord.guilds.cache.get(guild).roles.cache.map(role=>{%> 
+                                                          <option value="<%=role.id %>"> 
+                                                            <%=role.name %> 
+                                                              </option> 
+                                                            <%}) %> 
+                                                              </select>
+                                                          </div>
+                                                        </div>
+                                                      <div class=form-group>
+                                                        <div class=form-group>
+                                                          <p>Custom Stats Role: 
+                                                            <b> 
+                                                              <%=customStatsRole ? discord.guilds.cache.get(guild).roles.cache.get(customStatsRole).name : "No Role Set" %> 
+                                                                </b>
+                                                              <select class=form-control name=customStatsRole>
+                                                                <option>
+                                                                </option> 
+                                                                <% discord.guilds.cache.get(guild).roles.cache.map(role=>{%> 
+                                                                  <option value="<%=role.id %>"> 
+                                                                    <%=role.name %> 
+                                                                      </option> 
+                                                                    <%}) %> 
+                                                                      </select>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                        </div>
+                                                        <div class=col-md-6>
+                                                          <div class=lead-demo>
+                                                            <div class=form-group>
+                                                              <div class=form-group>
+                                                                <p>Logging Channel: 
+                                                                  <b> 
+                                                                    <%=event_logs ? "#" + discord.channels.cache.get(event_logs).name : "No Channel Set" %> 
+                                                                      </b>
+                                                                    <select class=form-control name=event_logs>
+                                                                      <option>
+                                                                      </option> 
+                                                                      <% discord.guilds.cache.get(guild).channels.cache.filter(c=> c.type==="text").forEach(c=>{%> 
+                                                                        <option value="<%=c.id %>"> 
+                                                                          <%=c.name %> 
+                                                                            </option> 
+                                                                          <%}) %> 
+                                                                            </select>
+                                                                          <div class=form-group>
+                                                                            <p>Join-Leave Channel: 
+                                                                              <b> 
+                                                                                <%=join_leave ? "#" + discord.channels.cache.get(join_leave).name : "No Channel Set" %> 
+                                                                                  </b>
+                                                                                <select class=form-control name=join_leave>
+                                                                                  <option>
+                                                                                  </option> 
+                                                                                  <% discord.guilds.cache.get(guild).channels.cache.filter(c=> c.type==="text").forEach(c=>{%> 
+                                                                                    <option value="<%=c.id %>"> 
+                                                                                      <%=c.name %> 
+                                                                                        </option> 
+                                                                                      <%}) %> 
+                                                                                        </select>
+                                                                                      <div class=form-group>
+                                                                                        <p>Rank Channel: 
+                                                                                          <b> 
+                                                                                            <%=rank_channel ? "#" + discord.channels.cache.get(rank_channel).name : "No Channel Set" %> 
+                                                                                              </b>
+                                                                                            <select class=form-control name=rank_channel>
+                                                                                              <option>
+                                                                                              </option> 
+                                                                                              <% discord.guilds.cache.get(guild).channels.cache.filter(c=> c.type==="text").forEach(c=>{%> 
+                                                                                                <option value="<%=c.id %>"> 
+                                                                                                  <%=c.name %> 
+                                                                                                    </option> 
+                                                                                                  <%}) %> 
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                              </div>
+                                                                                            </div>
+                                                                                      </div>
+                                                                                    </div>
+                                                                                  </div>
+                                                                                <button class="btn btn-secondary"type=button data-target=#exampleModal data-toggle=modal>Submit
+                                                                                </button> 
+                                                                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
+                                                                                  <div class="modal-dialog" role="document"> 
+                                                                                    <div class="modal-content"> 
+                                                                                      <div class="modal-header"> 
+                                                                                        <h5 class="modal-title" id="exampleModalLabel">Submit Changes 
+                                                                                        </h5> 
+                                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+                                                                                          <span aria-hidden="true">&times; 
+                                                                                          </span> 
+                                                                                        </button> 
+                                                                                      </div>
+                                                                                      <div class="modal-body"> Are you 100% sure you'd like to submit these changes? 
+                                                                                      </div>
+                                                                                      <div class="modal-footer"> 
+                                                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close 
+                                                                                        </button> 
+                                                                                        <button type="server-button" id='submit' type='submit' class="btn btn-secondary">Save Changes 
+                                                                                        </button> 
+                                                                                        </form> 
+                                                                                    </div>
+                                                                                  </div>
+                                                                                </div>
+                                                                                </section> 
+                                                                            <div class="card mb-4"> 
+                                                                              <div class="card-header" style="color: white; background-color: #2b2e4a;"> 
+                                                                                <i class="fa fa-paperclip" aria-hidden="true"> 
+                                                                                </i> Vanity URL 
+                                                                              </div>
+                                                                              <div class="card-body"> 
+                                                                                <div class="table-responsive"> 
+                                                                                  <form method="POST" action="/dashboard/<%=guild %>/settings"> 
+                                                                                    <div class="row"> 
+                                                                                      <div class="col-md-6"> 
+                                                                                        <div class="lead-demo"> 
+                                                                                          <div class="form-group"> 
+                                                                                            <div class="form-group"> 
+                                                                                              <p>Vanity Code: 
+                                                                                                <br>
+                                                                                                <span class='small'>Enter 
+                                                                                                  <b>only 
+                                                                                                  </b> the ending of the url you would like. 
+                                                                                                </span> 
+                                                                                                <br>
+                                                                                                <span class='small'>Ex: TeamTritan 
+                                                                                                </span> 
+                                                                                                <br>
+                                                                                                <span class="small"> 
+                                                                                                  <a href='https://tritan.gg/v/<%=vanityURL %>'>https://tritan.gg/v/ 
+                                                                                                    <%=vanityURL %> 
+                                                                                                      </a> 
+                                                                                                    </span> 
+                                                                                                  <input type="text" class="form-control" name="vanityURL" placeholder='<%=vanityURL || "Enter only the vanity link ending." %>' 
+                                                                                                         </p>
+                                                                                                  </div>
+                                                                                            </div>
+                                                                                          </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-6"> 
+                                                                                          <div class="lead-demo"> 
+                                                                                            <div class="form-group"> 
+                                                                                              <div class="form-group"> 
+                                                                                                <p>Vanity Redirect: 
+                                                                                                  <br>
+                                                                                                  <span class='small'>Enter 
+                                                                                                    <b>only 
+                                                                                                    </b> your guild's invite code. 
+                                                                                                    <br>Ex: AGBZGP 
+                                                                                                  </span> 
+                                                                                                  <br>
+                                                                                                  <span class="small"> 
+                                                                                                    <a href='https://tritan.gg/v/<%=vanityURL %>'>https://discord.gg/ 
+                                                                                                      <%=vanityRedirect %> 
+                                                                                                        </a> 
+                                                                                                      </span> 
+                                                                                                    <input type="text" class="form-control" name="vanityRedirect" placeholder='<%=vanityRedirect || "Enter only your guilds invite code, do not include the link." %>'> 
+                                                                                                    </p>
+                                                                                              </div>
+                                                                                            </div>
+                                                                                          </div>
+                                                                                        </div>
+                                                                                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal2"> Submit 
+                                                                                        </button> 
+                                                                                        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
+                                                                                          <div class="modal-dialog" role="document"> 
+                                                                                            <div class="modal-content"> 
+                                                                                              <div class="modal-header"> 
+                                                                                                <h5 class="modal-title" id="exampleModalLabel">Submit Changes 
+                                                                                                </h5> 
+                                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+                                                                                                  <span aria-hidden="true">&times; 
+                                                                                                  </span> 
+                                                                                                </button> 
+                                                                                              </div>
+                                                                                              <div class="modal-body"> Are you 100% sure you'd like to submit these changes? 
+                                                                                              </div>
+                                                                                              <div class="modal-footer"> 
+                                                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close 
+                                                                                                </button> 
+                                                                                                <button type="server-button" id='submit' type='submit' class="btn btn-secondary">Save Changes 
+                                                                                                </button> 
+                                                                                                </form> 
+                                                                                            </div>
+                                                                                          </div>
+                                                                                        </div>
+                                                                                      </div>
+                                                                                    </div>
+                                                                                    </div>
+                                                                                  </form> 
+                                                                              </div>
+                                                                            </div>
+                                                                            <br>
+                                                                            <br>
+                                                                            <div class="card mb-4"> 
+                                                                              <div class="card-header" style="color: white; background-color: #2b2e4a;"> 
+                                                                                <i class="fa fa-paperclip" aria-hidden="true"> 
+                                                                                </i> Auto Message Deletion
+                                                                              </div>
+                                                                              <div class="card-body"> 
+                                                                                <div class="table-responsive"> 
+                                                                                  <form method="POST" action="/dashboard/<%=guild %>/settings"> 
+                                                                                    <div class="row"> 
+                                                                                      <div class="col-md-6"> 
+                                                                                        <div class="lead-demo"> 
+                                                                                          <div class="form-group"> 
+                                                                                            <div class="form-group"> 
+                                                                                              <p>Auto-Deletion Channel: 
+                                                                                                <%=autodeletechannel ? "#" + discord.channels.cache.get(autodeletechannel).name : "No Channel Set" %> 
+                                                                                                  <br>
+                                                                                                  <span class='small'>Select the channel to autodelete all messages in, this is typically a bot spam channel.
+                                                                                                  </span> 
+                                                                                                  <br>
+                                                                                                  <select class=form-control name=autodeletechannel>
+                                                                                                    <option>
+                                                                                                    </option>
+                                                                                                    <% discord.guilds.cache.get(guild).channels.cache.filter(c=> c.type==="text").forEach(c=>{%> 
+                                                                                                      <option value="<%=c.id %>"> 
+                                                                                                        <%=c.name  %> 
+                                                                                                          </option> 
+                                                                                                        <%}) %> 
+                                                                                                          </select>                                                                                                         
+                                                                                                      </p>
+                                                                                                    </div>
+                                                                                                  </div>
+                                                                                            </div>
+                                                                                          </div>
+                                                                                          <div class="col-md-6"> 
+                                                                                            <div class="lead-demo"> 
+                                                                                              <div class="form-group"> 
+                                                                                                <div class="form-group"> 
+                                                                                                  <p>Auto-Deletion Keyword: (1 Word)
+                                                                                                    <br>
+                                                                                                    <span class='small'>This option is not required, you are able to enter any keywords that will NOT be deleted.
+                                                                                                    </span>
+                                                                                                    <input type="text" class="form-control" name="autodeletekeyword" placeholder='<%=autodeletekeyword || "N/A" %>'> 
+                                                                                                  </p>
+                                                                                                </div>
+                                                                                              </div>
+                                                                                            </div>
+                                                                                          </div>
+                                                                                          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal3"> Submit 
+                                                                                          </button> 
+                                                                                          <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
+                                                                                            <div class="modal-dialog" role="document"> 
+                                                                                              <div class="modal-content"> 
+                                                                                                <div class="modal-header"> 
+                                                                                                  <h5 class="modal-title" id="exampleModalLabel">Submit Changes 
+                                                                                                  </h5> 
+                                                                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+                                                                                                    <span aria-hidden="true">&times; 
+                                                                                                    </span> 
+                                                                                                  </button> 
+                                                                                                </div>
+                                                                                                <div class="modal-body"> Are you 100% sure you'd like to submit these changes? 
+                                                                                                </div>
+                                                                                                <div class="modal-footer"> 
+                                                                                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close 
+                                                                                                  </button> 
+                                                                                                  <button type="server-button" id='submit' type='submit' class="btn btn-secondary">Save Changes 
+                                                                                                  </button> 
+                                                                                                  </form> 
+                                                                                              </div>
+                                                                                            </div>
+                                                                                          </div>
+                                                                                        </div>
+                                                                                      </div>
+                                                                                    </div>
+                                                                                  </form> 
+                                                                                </div>
+                                                                              </div>
+                                                                              </main> 
+                                                                            <%- include('../partials/home/footer') %> 
+                                                                              <%- include('../partials/home/end') %>

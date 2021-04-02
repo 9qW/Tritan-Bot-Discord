@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html color-mode=dark lang=en> 
+  <%- include('../partials/home/head') %> 
+    <header> 
+      <%- include('../partials/home/nav') %> 
+        <div class="bg-dark landing-sass-header-content" style=background-image:url(/assets/img/header-bg2.png)> 
+          <% if(alert_active){%> 
+            <div class="text-center mb-5 alert alert-dismissible alert fade show" role=alert style="background-color: #7289da;">
+              <i data-feather=alert-circle class=mr-2>
+              </i> 
+              <%=alert_text %> 
+                <button class=close aria-label=Close data-dismiss=alert type=button>
+                  <span aria-hidden=true>×
+                  </span>
+                </button>
+                </div> 
+              <%}%> 
+                <div class=container>
+                  <h1 class="font-weight-bold mb-0 text-center pb-30px pt-5 text-white">
+                    <span style=color:#7289da>
+                    </span>Tritan Bot:
+                    <br>
+                    <span class=small>A Multipurpose Bot For All Your Needs!
+                    </span>
+                  </h1>
+                  <div class="text-center mb-5">
+                    <a href=/dashboard>
+                      <button class="btn btn-light mr-3"style=background-color:#7289da;outline-color:#7289da;border:none>
+                        <i class="fa-discord fab"style=color:#fff>
+                        </i> Manage Servers
+                      </button> 
+                    </a>
+                    <a href=/invite>
+                      <button class="btn btn-light mr-3"style=background-color:#fff;border:none>
+                        <i class="fa-plus fas"style=color:#7289da>
+                        </i> Invite Tritan Bot
+                      </button>
+                    </a>
+                    <br>
+                    <br>
+                    <center>
+                      <span style=color:#fff>150+ Commands, Countless Features 
+                      </span>
+                      <span style=color:#7289da>*
+                      </span>
+                    </center>
+                  </div>
+                </div>
+                </div>
+              <div class="text-center landing-sass-header-img-wrapper">
+                <img alt=header-img src=/assets/img/header.webp class=img-fluid width=812px>
+              </div>
+              </header>
+            <main>
+              <div class=container id='counters'>
+                <section class=mb-5>
+                  <h6 class="text-info mb-4">Need a quick and painless setup?
+                  </h6>
+                  <div class=row>
+                    <div class=col-lg-6>
+                      <h1 class="mb-3">Multi-profile management from one dashboard.
+                      </h1>
+                      <p class=text-muted>Our dashboard allows you to not only manage your server, but it also provides you with web functionalities that are not common in Discord bot dashboards. These features include an API, Searchable Infractions, Guild Stats, Guild Info, Moderation, and more!
+                        <br>
+                        <button class='btn btn-outline-primary' onClick="window.location.reload();">Refresh Counters
+                        </button>
+                    </div>
+                    <div class="text-muted col-lg-6">
+                      <div class=row>
+                        <div class="mb-5 align-items-center col-sm-6 d-flex justify-content-center">
+                          <span class="font-weight-bold mb-0 mr-2 h1 text-info animate-number"> 
+                            <%=total_guilds %> 
+                              </span>
+                            <span>Total
+                              <br>Guilds
+                            </span>
+                            </div>
+                          <div class="mb-5 align-items-center col-sm-6 d-flex justify-content-center">
+                            <span class="font-weight-bold mb-0 mr-2 h1 text-info animate-number"> 
+                              <%=total_users %> 
+                                </span>
+                              <span>Total
+                                <br>Users
+                              </span>
+                              </div>
+                            <div class="mb-5 align-items-center col-sm-6 d-flex justify-content-center">
+                              <span class="font-weight-bold mb-0 mr-2 h1 text-info animate-number"> 
+                                <%=total_channels %> 
+                                  </span>
+                                <span>Total
+                                  <br>Channels
+                                </span>
+                                </div>
+                              <div class="mb-5 align-items-center col-sm-6 d-flex justify-content-center">
+                                <span class="font-weight-bold mb-0 mr-2 h1 text-info animate-number"> 
+                                  <%=ping %>
+                                    </span>
+                                  <span>
+                                    Current
+                                    <br>Ping
+                                  </span>
+                                  </div>
+                              </div>
+                            </div>
+                            </section>
+                          <section class="py-5 mb-5">
+                            <h6 class="text-center text-info font-weight-bold">What We Are
+                            </h6>
+                            <h2 class="text-center font-weight-bold mb-5">
+                              A Superior Discord Bot
+                            </h2>
+                            <div class="row">
+                              <div class="col-md-3 mb-3">
+                                <div class="feature-icon rounded-circle badge-soft-danger mb-4">
+                                  <i data-feather="feather" width="13" height="13" stroke-width="3">
+                                  </i>
+                                </div>
+                                <h5>Everything you need, neatly bundled together.
+                                </h5>
+                                <p class="text-muted">Tritan Bot has everything you need, and more! From moderation, to fun commands; we've got you covered to ensure your community is managed tightly.
+                                </p>
+                              </div>
+                              <div class="col-md-3 mb-3">
+                                <div class="feature-icon rounded-circle badge-soft-info mb-4">
+                                  <i data-feather="umbrella" width="13" height="13" stroke-width="3">
+                                  </i>
+                                </div>
+                                <h5>Consistent reliability, with little downtime.
+                                </h5>
+                                <p class="text-muted">Tritan Bot was created on 
+                                  <b>Wed Jul 15 2020
+                                  </b>, and we've been busy at work since! Our team of developers is constantly ensuring that we use the most recent standards for providing services in the Discord relm.
+                                </p>
+                              </div>
+                              <div class="col-md-3 mb-3">
+                                <div class="feature-icon rounded-circle badge-soft-success mb-4">
+                                  <i data-feather="smile" width="13" height="13" stroke-width="3">
+                                  </i>
+                                </div>
+                                <h5>A super neat dashboard!
+                                </h5>
+                                <p class="text-muted">Ever since creating the Bot, we've always wanted to provide a great interactive experience through the web. I'll admit, it had a huge learning curve but we've neatly packaged most of the configuration setup to into the dashboard for ease of use.
+                                </p>
+                              </div>
+                              <div class="col-md-3 mb-3">
+                                <div class="feature-icon rounded-circle badge-soft-primary mb-4">
+                                  <i data-feather="folder" width="13" height="13" stroke-width="3">
+                                  </i>
+                                </div>
+                                <h5>We're here to help you succeed!
+                                </h5>
+                                <p class="text-muted">Whatever you need, we'd be happy to look into it! We pride outselves on being community driven, which means we listen to you! If you would like to see anything added, just ask away.
+                                </p>
+                              </div>
+                            </div>
+                          </section>
+                          <section class="mb-5 py-5">
+                            <div class="row">
+                              <div class="col-md-6 col-lg-5 offset-lg-1 d-flex flex-column justify-content-center text-right pr-md-4">
+                                <span style='color:#2b2e4a' class="display-4  mb-3 ">200+ Commands
+                                </span>
+                                <p class="text-gray">We can only show off so much, so we've included some examples below of just a 
+                                  <b>few
+                                  </b> of our awesome features.
+                                </p>
+                                </p>
+                            </div>
+                            <div class="col-md-6 col-lg-5 d-flex flex-column justify-content-center">
+                              <h4 class="text-center mb-3">Give your Discord server the attention it deserves.
+                              </h4>
+                              <a href='/invite' class='btn btn-outline-primary'>Invite Tritan Bot
+                              </a>
+                            </div>
+                            </div>
+                          </section>
+                        <section class="text-muted lead-landing-section">
+                          <div class=container>
+                            <div class=row>
+                              <div class=col-md-6>
+                                <img alt=analytics src=https://dylan.is-a-femboy.cc/h649vk.png class=img-fluid>
+                              </div>
+                              <div class=col-md-6>
+                                <h2 class="text-dark mb-20px">Advanced analytics,
+                                  <br>easy to understand.
+                                </h2>
+                                <p class="text-muted mb-20px">Tritan Bot includes many easy to use utilities, including server analytics. No longer do you have to tirelessly check all of your server analytics manually! Our analytics section includes member counts, bot counts, server info, message counts, and much much more.
+                                <ul class="mb-30px list-ckeck-soft">
+                                  <li>It's as easy as logging into our website!
+                                  <li>Able to be customized!
+                                </ul>
+                                <a href=/dashboard style=color:#fff>
+                                  <button class="btn btn-primary">Learn more
+                                  </button>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                        <section class="text-muted lead-landing-section">
+                          <div class=container>
+                            <div class=row>
+                              <div class=col-md-6>
+                                <img alt=analytics src=https://dylan.is-a-femboy.cc/3f52ra.png class=img-fluid width=535px>
+                              </div>
+                              <div class=col-md-6>
+                                <h2 class="text-dark mb-20px">Reaction-Based
+                                  <br>Music Control
+                                </h2>
+                                <p class="text-muted mb-20px">Music Bots are a dime a dozen, that's why we decided to add multiple typically premium features for free! We stride ourselves on making preium quality products, and as we throught about ideas we could incorporate into the bot- we settled on something minimal but nessessary. We decided to add complete control over music playing, without commands. This was hard to accomplish at first, but as we prefected it, we decided to leave the commands also so people could choose if they want to use reactions or commands.
+                                <ul class="mb-30px list-ckeck-soft">
+                                  <li>It's as simple as the click of a button.
+                                  <li>Reactions are limited to the person who queued the song.
+                                </ul>
+                                <a href=/dashboard style=color:#fff>
+                                  <button class="btn btn-primary">Learn more
+                                  </button>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                        <section class="text-muted lead-landing-section">
+                          <div class=container>
+                            <div class=row>
+                              <div class=col-md-6>
+                                <img alt=analytics src=https://dylan.is-a-femboy.cc/piepbo.png class=img-fluid width=535px>
+                              </div>
+                              <div class=col-md-6>
+                                <h2 class="text-dark mb-20px">Easy Embed Generator
+                                </h2>
+                                <p class="text-muted mb-20px">Do you like Discord embeds as much as we do? We've made creating embeds as easy as possible! Just run the embed command, and fill in the questions that the bot asks!
+                                <ul class="mb-30px list-ckeck-soft">
+                                  <li>Custom Options
+                                  <li>User Input
+                                </ul>
+                                <a href=/dashboard style=color:#fff>
+                                  <button class="btn btn-primary">Learn more
+                                  </button>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                        <section class="text-muted lead-landing-section">
+                          <div class=container>
+                            <div class=row>
+                              <div class=col-md-6>
+                                <img alt=analytics src=https://dylan.is-a-femboy.cc/pgc7so.png class=img-fluid>
+                              </div>
+                              <div class=col-md-6>
+                                <h2 class="text-dark mb-20px">Infractions & Logging
+                                </h2>
+                                <p class="text-muted mb-20px">As any other general purpose bot would have, we have built an entire infractions system. Tritan Bot's infraction system includes kicking, warning, muting, locking channels, adding notes, and other features. Tritan Bot also logs server events, so you will still have logging abilities if actions are made through other bots or Discord itself.
+                                <ul class="mb-30px list-ckeck-soft">
+                                  <li>Custom Channels
+                                  <li>15+ Types of Logging
+                                </ul>
+                                <a href=/dashboard style=color:#fff>
+                                  <button class="btn btn-primary">Learn more
+                                  </button>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                        <section class="text-muted lead-landing-section">
+                          <div class=container>
+                            <div class=row>
+                              <div class=col-md-6>
+                                <img alt=analytics src=https://dylan.is-a-femboy.cc/ad7mq.png class=img-fluid width=535px>
+                              </div>
+                              <div class=col-md-6>
+                                <h2 class="text-dark mb-20px">AFK System
+                                </h2>
+                                <p class="text-muted mb-20px">With our AFK system, you won't be spam pinged anymore when you're busy! Any time someone mentions you in any server, Tritan Bot will reply telling them that you're afk for whatever reason was set.
+                                <ul class="mb-30px list-ckeck-soft">
+                                  <li>Global System, responds in multiple Servers
+                                  <li>Auto unafk upon your next message.
+                                </ul>
+                                <a href=/dashboard style=color:#fff>
+                                  <button class="btn btn-primary">Learn more
+                                  </button>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                        <section class="text-muted lead-landing-section">
+                          <div class=container>
+                            <div class=row>
+                              <div class=col-md-6>
+                                <img alt=analytics src=https://dylan.is-a-femboy.cc/jhz3ub.png class=img-fluid width=535px>
+                              </div>
+                              <div class=col-md-6>
+                                <h2 class="text-dark mb-20px">Suggestion Handling
+                                </h2>
+                                <p class="text-muted mb-20px">Suggestion handling has never been easier with Tritan Bot! Just make a channel titled Suggestions, and instruct your members to use the correct command.
+                                <ul class="mb-30px list-ckeck-soft">
+                                  <li>Assigns suggestion ID's so your suggestions don't get lost.
+                                  <li>Approval or Denial messages with reasoning.
+                                </ul>
+                                <a href=/dashboard style=color:#fff>
+                                  <button class="btn btn-primary">Learn more
+                                  </button>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                        <section class="text-muted lead-landing-section">
+                          <div class=container>
+                            <div class=row>
+                              <div class=col-md-6>
+                                <img alt=analytics src=https://dylan.is-a-femboy.cc/wyz6vd.png class=img-fluid width=535px>
+                              </div>
+                              <div class=col-md-6>
+                                <h2 class="text-dark mb-20px">Much More!
+                                </h2>
+                                <p class="text-muted mb-20px">If I were to list every feature I thought was useful, this page would never end. We offer a very large array of commands to suite everyone's needs.
+                                <ul class="mb-30px list-ckeck-soft">
+                                  <li>Music Commands
+                                  <li>Fun Commands
+                                  <li>Utility Commands
+                                  <li>Moderation Commands
+                                  <li>Image & Gif Commands
+                                  <li>Bot Settings Commands
+                                  <li>Informative Commands
+                                  <li>Economy Commands
+                                </ul>
+                                <a href=/dashboard style=color:#fff>
+                                  <button class="btn btn-primary">Learn more
+                                  </button>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                        <div class="text-muted container">
+                          <h3 class="text-center text-dark">Testimonials
+                          </h3>
+                          <p class="text-muted text-center mb-5">What our users think about us
+                          <section class="mb-5 py-5">
+                            <div class=row>
+                              <div class=col-md-4>
+                                <div class="border-0 card card-shadow">
+                                  <div class="card-body p-40px">
+                                    <div class=star-ratings-wrapper>
+                                      <i data-feather=star height=auto stroke-width=0 width=15px fill=#ffbc00 stroke=#ffffff>
+                                      </i> 
+                                      <i data-feather=star height=auto stroke-width=0 width=15px fill=#ffbc00 stroke=#ffffff>
+                                      </i> 
+                                      <i data-feather=star height=auto stroke-width=0 width=15px fill=#ffbc00 stroke=#ffffff>
+                                      </i> 
+                                      <i data-feather=star height=auto stroke-width=0 width=15px fill=#ffbc00 stroke=#ffffff>
+                                      </i> 
+                                      <i data-feather=star height=auto stroke-width=0 width=15px fill=#ffbc00 stroke=#ffffff>
+                                      </i>
+                                    </div>
+                                    <p class="text-muted text-center mb-5">Well what I can say is.. its not a bad not gonna lie, I'd give it a 9/10. just needs a little bit of some more improvements. It's a bot that definitely deserves to go out in the discord community :slight_smile:, and some commands were not responding at times (the logging commands to be specific) but besides that other commands worked smoothly
+                                    <div class="align-items-center d-flex">
+                                      <div class="avatar avatar-md avatar-rounded mr-2">
+                                        <img alt=avatar src=/assets/img/discord_avatar.webp>
+                                      </div>
+                                      <h6 class="font-weight-bold mb-0 mr-2 text-primary">Davy
+                                      </h6>
+                                      <span class="text-muted font-weight-bold small">Early Supporter
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class=col-md-4>
+                                <div class="border-0 card card-shadow">
+                                  <div class="card-body p-40px">
+                                    <div class=star-ratings-wrapper>
+                                      <i data-feather=star height=auto stroke-width=0 width=15px fill=#ffbc00 stroke=#ffffff>
+                                      </i> 
+                                      <i data-feather=star height=auto stroke-width=0 width=15px fill=#ffbc00 stroke=#ffffff>
+                                      </i> 
+                                      <i data-feather=star height=auto stroke-width=0 width=15px fill=#ffbc00 stroke=#ffffff>
+                                      </i> 
+                                      <i data-feather=star height=auto stroke-width=0 width=15px fill=#ffbc00 stroke=#ffffff>
+                                      </i> 
+                                      <i data-feather=star height=auto stroke-width=0 width=15px fill=#ffbc00 stroke=#ffffff>
+                                      </i>
+                                    </div>
+                                    <p class="text-muted text-center mb-5">Team tritan always has the nicest support, every time I have a question it gets answered and they even help me customize it to my server!
+                                    <div class="align-items-center d-flex">
+                                      <div class="avatar avatar-md avatar-rounded mr-2">
+                                        <img alt=avatar src=/assets/img/discord_avatar.webp>
+                                      </div>
+                                      <h6 class="font-weight-bold mb-0 mr-2 text-primary">Jakey T
+                                      </h6>
+                                      <span class="text-muted font-weight-bold small">Early Supporter
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class=col-md-4>
+                                <div class="border-0 card card-shadow">
+                                  <div class="card-body p-40px">
+                                    <div class=star-ratings-wrapper>
+                                      <i data-feather=star height=auto stroke-width=0 width=15px fill=#ffbc00 stroke=#ffffff>
+                                      </i> 
+                                      <i data-feather=star height=auto stroke-width=0 width=15px fill=#ffbc00 stroke=#ffffff>
+                                      </i> 
+                                      <i data-feather=star height=auto stroke-width=0 width=15px fill=#ffbc00 stroke=#ffffff>
+                                      </i> 
+                                      <i data-feather=star height=auto stroke-width=0 width=15px fill=#ffbc00 stroke=#ffffff>
+                                      </i> 
+                                      <i data-feather=star height=auto stroke-width=0 width=15px fill=#ffbc00 stroke=#ffffff>
+                                      </i>
+                                    </div>
+                                    <p class="text-muted text-center mb-5">I've just added this bot to our server, I am constantly using music bots and I'd just like to say that this bot is so worth a try! Amazing quality, everything you've been looking for in a bot. Great sound quality, user friendly and k love that all the options appear right beneath the song. Would definitely recommend this to anyone!
+                                    <div class="align-items-center d-flex">
+                                      <div class="avatar avatar-md avatar-rounded mr-2">
+                                        <img alt=avatar src=/assets/img/discord_avatar.webp>
+                                      </div>
+                                      <h6 class="font-weight-bold mb-0 mr-2 text-primary">𝓓𝓢了Mrs𝔾𝟛ℕ𝟙𝕌𝕊☠
+                                      </h6>
+                                      <span class="text-muted font-weight-bold small">Early Supporter
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                        </div>
+                        <main class=demo-main id=premium>
+                          <div class="text-muted container">
+                            <section class="mb-5 py-5">
+                              <h6 class="font-weight-bold mb-0 text-info text-center">PREMIUM PLANS
+                              </h6>
+                              <h3 class="text-dark text-center mb-40px">Choose to donate, or support us monthly.
+                              </h3>
+                              <div class=tab-content>
+                                <div class="active tab-pane"role=tabpanel aria-labelledby=pricing-one-mnthly-tab id=pricing-one-mnthly>
+                                  <div class=row>
+                                    <div class="col-md-6 col-lg-4 offset-lg-2">
+                                      <div class="border-0 card card-shadow">
+                                        <div class="card-body p-lg-5 p-md-4">
+                                          <h3 class="text-dark text-center">One-Time Donation
+                                          </h3>
+                                          <h6 class="text-muted text-center mb-5">Help us, help you.
+                                          </h6>
+                                          <ul class="text-muted list-checked mb-40px">
+                                            <li>Premium Guild Flag
+                                            <li>Priority Support
+                                            <li>Donators Role
+                                            <li>Give Developer's 1-on-1 Feedback
+                                          </ul>
+                                          <div class="align-items-center d-flex justify-content-center mb-30px">
+                                            <span class="font-weight-bold mb-0 h3 mr-1">$5 
+                                            </span>/one time
+                                          </div>
+                                          <div class=text-center>
+                                            <a href=https://www.buymeacoffee.com/teamtritan>
+                                              <button class="btn btn-primary">Donate Now
+                                              </button>
+                                            </a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4">
+                                      <div class="border-0 card card-shadow">
+                                        <div class="card-body p-lg-5 p-md-4">
+                                          <h3 class="text-dark text-center">One-Time Donation
+                                          </h3>
+                                          <h6 class="text-muted text-center mb-5">Help us, help you- but more.
+                                          </h6>
+                                          <ul class="text-muted list-checked mb-40px">
+                                            <li>Premium Guild Flag
+                                            <li>Priority Support
+                                            <li>Donators & Patrons Role
+                                            <li>Give Developer's 1-on-1 Feedback
+                                          </ul>
+                                          <div class="align-items-center d-flex justify-content-center mb-30px">
+                                            <span class="font-weight-bold mb-0 h3 mr-1">$15 
+                                            </span>/one time
+                                          </div>
+                                          <div class=text-center>
+                                            <a href=https://www.buymeacoffee.com/teamtritan>
+                                              <button class="btn btn-primary">Donate Now
+                                              </button>
+                                            </a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </section>
+                            <div class=container>
+                              <section class="mb-5 py-5">
+                                <h6 class="font-weight-bold mb-0 text-info text-center">Recent Blog Posts
+                                </h6>
+                                <h3 class="text-dark text-center mb-40px">We're here to help!
+                                </h3>
+                                <section class="mb-5 pb-5">
+                                  <div class=row>
+                                    <div class="offset-md-2 col-md-8">
+                                      <div class="border-0 card mb-4 shadow">
+                                        <div class=row>
+                                          <div class=col-md-4>
+                                            <img alt="blog post"src=/assets/img/blog-image-discordbot.webp class="card-img-top h-100 rounder-left">
+                                          </div>
+                                          <div class="text-dark card-body col-md-8">
+                                            <h4>Create your own Discord Bot in NodeJS!
+                                            </h4>
+                                            <p>This step by step guide will coach you through creating your own Discord Bot.
+                                            </p>
+                                            <a href=/blog/discord-bot class="text-primary text-underline">Read more
+                                            </a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </section>
+                                <section class="card-shadow px-3 py-5">
+                                  <div class=row>
+                                    <div class="offset-lg-2 col-lg-8 py-5">
+                                      <h1 class="text-center text-dark mb-3">Everything you need, in one place.
+                                      </h1>
+                                      <p class=mb-4>Tritan Bot can handle the biggest guild's needs, without a doubt. We pride ourselves into producing high quality software for no cost, to give the best experiences to the best users.
+                                      <div class=text-center>
+                                        <a href=/dashboard>
+                                          <button class="btn btn-light mr-3" style=background-color:#7289da;outline-color:#7289da;border:none>
+                                            <i class="fa-discord fab" style=color:#fff>
+                                            </i> Manage Servers
+                                          </button> 
+                                        </a>
+                                        <a href=/invite>
+                                          <button class="btn btn-light mr-3" style=background-color:#7289da;outline-color:#7289da;border:none>
+                                            <i class="fa-plus fas" style=color:#fff>
+                                            </i> Invite Tritan Bot
+                                          </button>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </section>
+                              </section>
+                            </div>
+                          </div>
+                        </main> 
+                        <%- include('../partials/home/footer') %> 
+                          <%- include('../partials/home/end') %> 
+                            <script>
+                              const animationClass = 'animate-number';
+                              const animDuration = 1500;
+                              const totalFrames = 100;
+                              const updateEvery = animDuration / totalFrames;
+                              const totalKeyframes = Math.floor(animDuration / updateEvery);
+                              const easeOut = x => x * (2 - x);
+                              const animateNumber = el => {
+                                let keyframe = 0;
+                                const finalNumber = parseInt(el.innerHTML, 10);
+                                const counter = setInterval(() => {
+                                  keyframe++;
+                                  let progress = easeOut(keyframe / totalKeyframes);
+                                  let currentNumber = Math.round(finalNumber * progress);
+                                  if (parseInt(el.innerHTML, 10) !== currentNumber) {
+                                    el.innerHTML = numberCommaSeperator(currentNumber);
+                                  }
+                                  if (keyframe === totalKeyframes) {
+                                    clearInterval(counter);
+                                  }
+                                }
+                                                            , updateEvery);
+                              }
+                              const numberCommaSeperator = num => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                              document.querySelectorAll(`.${animationClass}
+`).forEach(animateNumber);
+                            </script>
+                            </main>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang=en> 
+  <%- include('../partials/home/head') %> 
+    <header> 
+      <%- include('../partials/home/nav') %> 
+        <div class="bg-dark landing-sass-header-content" style=background-image:url(/assets/img/header-bg2.png)> 
+          <div class=container>
+            <h1 class="mb-0 font-weight-bold pb-30px pt-5 text-center text-white">About 
+            </h1>
+          </div>
+        </div>
+        <div class="text-center landing-sass-header-img-wrapper">
+          <img alt=header-img src=/assets/img/chart.png class=img-fluid width=412px>
+        </div>
+        </header>
+      <main>
+        <div class=container>
+          <h3>Developers
+          </h3>
+          <section class="mb-5 py-5">
+            <h6 class="text-center mb-5 text-muted">MEET OUR EXPERTS
+            </h6>
+            <div class=row>
+              <div class=col-md-3>
+                <div class="card border-0 card-shadow">
+                  <div class="text-center card-body py-5">
+                    <div class="avatar avatar-rounded avatar-xl mb-35px">
+                      <img alt=avatar src=https://cdn.discordapp.com/avatars/359498825150365699/a69ed10dc5294525ffef527a39015e18.webp>
+                    </div>
+                    <h5 class=mb-0>Dylan James
+                    </h5>
+                    <h6 class="mb-0 text-muted">Creator
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              <div class=col-md-3>
+                <div class="card border-0 card-shadow">
+                  <div class="text-center card-body py-5">
+                    <div class="avatar avatar-rounded avatar-xl mb-35px">
+                      <img alt=avatar src="https://cdn.discordapp.com/avatars/542572136112324629/aa9c115f4eb420774d863dc4b39379f2.webp?size=1024">
+                    </div>
+                    <h5 class=mb-0>Crafterzman
+                    </h5>
+                    <h6 class="mb-0 text-muted">Senior Developer
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              <div class=col-md-3>
+                <div class="card border-0 card-shadow">
+                  <div class="text-center card-body py-5">
+                    <div class="avatar avatar-rounded avatar-xl mb-35px">
+                      <img alt=avatar src="https://cdn.discordapp.com/avatars/222042705285480448/9b52d3251c8a2b7dd46e2e2eb8e22348.webp?size=1024">
+                    </div>
+                    <h5 class=mb-0>Windows
+                    </h5>
+                    <h6 class="mb-0 text-muted">Senior Developer
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              <div class=col-md-3>
+                <div class="card border-0 card-shadow">
+                  <div class="text-center card-body py-5">
+                    <div class="avatar avatar-rounded avatar-xl mb-35px">
+                      <img alt=avatar src="https://cdn.discordapp.com/avatars/558861606063308822/1765847ead60d3ff5ec4a2ed77db798a.webp?size=1024">
+                    </div>
+                    <h5 class=mb-0>Nirlep
+                    </h5>
+                    <h6 class="mb-0 text-muted">Developer
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              </section>
+            <br>
+            <section class=mb-5>
+              <div class="card mb-4">
+                <div class=card-header style=color:#fff;background-color:#7289DA>
+                  <i aria-hidden=true class="fa fa-chart">
+                  </i> Popular Commands
+                </div>
+                <div class=card-body>
+                  <center>
+                    <canvas height=400 id=myChart width=400>
+                    </canvas>
+                  </center>
+                  <script src=https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js>
+                  </script>
+                  <script>var ctx=document.getElementById('myChart');
+                    var myChart=new Chart(ctx,{
+                      type:'bar',data:{
+                        labels:[<%for(i of stats){
+                                %>"<%=i.name %>",<%}
+                                %>],datasets:[{
+                                  label:"Times Used",data:[<%for(i of stats){
+                                                           %>"<%=i.count %>",<%}
+                                                           %>],backgroundColor:['rgba(255, 99, 132, 0.2)','rgba(54, 162, 235, 0.2)','rgba(255, 206, 86, 0.2)','rgba(75, 192, 192, 0.2)','rgba(153, 102, 255, 0.2)','rgba(255, 159, 64, 0.2)','rgba(255, 99, 132, 0.2)','rgba(54, 162, 235, 0.2)','rgba(255, 206, 86, 0.2)','rgba(75, 192, 192, 0.2)','rgba(153, 102, 255, 0.2)','rgba(255, 159, 64, 0.2)','rgba(255, 99, 132, 0.2)','rgba(54, 162, 235, 0.2)','rgba(255, 206, 86, 0.2)','rgba(75, 192, 192, 0.2)','rgba(153, 102, 255, 0.2)','rgba(255, 159, 64, 0.2)','rgba(255, 99, 132, 0.2)','rgba(54, 162, 235, 0.2)','rgba(255, 206, 86, 0.2)','rgba(75, 192, 192, 0.2)','rgba(153, 102, 255, 0.2)','rgba(255, 159, 64, 0.2)','rgba(255, 99, 132, 0.2)','rgba(54, 162, 235, 0.2)','rgba(255, 206, 86, 0.2)','rgba(75, 192, 192, 0.2)','rgba(153, 102, 255, 0.2)','rgba(255, 159, 64, 0.2)','rgba(255, 99, 132, 0.2)','rgba(54, 162, 235, 0.2)','rgba(255, 206, 86, 0.2)','rgba(75, 192, 192, 0.2)','rgba(153, 102, 255, 0.2)','rgba(255, 159, 64, 0.2)'],borderColor:['rgba(255, 99, 132, 1)','rgba(54, 162, 235, 1)','rgba(255, 206, 86, 1)','rgba(75, 192, 192, 1)','rgba(153, 102, 255, 1)','rgba(255, 159, 64, 1)','rgba(255, 99, 132, 1)','rgba(54, 162, 235, 1)','rgba(255, 206, 86, 1)','rgba(75, 192, 192, 1)','rgba(153, 102, 255, 1)','rgba(255, 159, 64, 1)','rgba(255, 99, 132, 1)','rgba(54, 162, 235, 1)','rgba(255, 206, 86, 1)','rgba(75, 192, 192, 1)','rgba(153, 102, 255, 1)','rgba(255, 159, 64, 1)','rgba(255, 99, 132, 1)','rgba(54, 162, 235, 1)','rgba(255, 206, 86, 1)','rgba(75, 192, 192, 1)','rgba(153, 102, 255, 1)','rgba(255, 159, 64, 1)','rgba(255, 99, 132, 1)','rgba(54, 162, 235, 1)','rgba(255, 206, 86, 1)','rgba(75, 192, 192, 1)','rgba(153, 102, 255, 1)','rgba(255, 159, 64, 1)','rgba(255, 99, 132, 1)','rgba(54, 162, 235, 1)','rgba(255, 206, 86, 1)','rgba(75, 192, 192, 1)','rgba(153, 102, 255, 1)','rgba(255, 159, 64, 1)'],borderWidth:1}
+                                             ]}
+                      ,options:{
+                        maintainAspectRatio:false,layout:{
+                          padding:{
+                            left:10,right:25,top:25,bottom:0}
+                        }
+                        ,legend:{
+                          display:true}
+                        ,tooltips:{
+                          backgroundColor:"#2c2f34",bodyFontColor:"#FFF",titleMarginBottom:10,titleFontColor:'#FFF',titleFontSize:14,borderColor:'#2c2f34',borderWidth:1,xPadding:15,yPadding:15,displayColors:false,intersect:false,mode:'index',caretPadding:10,}
+                      }
+                    }
+                                         );
+                  </script>
+                  <center>
+                    <h6 class="text text-info">* Command stats are collected by 
+                      <a href=/stats/ >Statcord 
+                      </a>, a third party.
+                    </h6>
+                  </center>
+                </div>
+              </div>
+            </section>
+            <section class=mb-5>
+              <div class="card mb-4">
+                <div class=card-header style=color:#fff;background-color:#7289DA>
+                  <i aria-hidden=true class="fa fa-chart">
+                  </i> Command Usages
+                </div>
+                <div class=card-body>
+                  <div class=table-responsive>
+                    <table cellspacing="0 "class="table table"id=dataTable width="100% ">
+                      <thead>
+                        <tr>
+                          <th>Usages
+                          <th>Command
+                            <tbody> 
+                              <% for(i of commands){%> 
+                                <tr>
+                                  <td> 
+                                    <%=i.timesUsed %> 
+                                      <td> 
+                                        <%=i.commandName %> 
+                                          </tr>
+                                        <%}%> 
+                                          </table>
+                                        <center>
+                                          <h6 class="text text-info">* The information in this table is collected by Tritan Bot.
+                                          </h6>
+                                        </center>
+                                      </div>
+                                </div>
+                                </div>
+                        </section>
+                          <section class="mb-5 py-5">
+                            <div class=row>
+                              <div class="col-lg-5 col-md-6 d-flex flex-column justify-content-center offset-lg-1">
+                                <h2 class="mb-0 font-weight-bold">It's time to change your servers efficiency
+                                </h2>
+                                <p class="font-weight-normal mb-30px text-gray">Start by logging into our dashboard, it's easy from there.
+                                <div>
+                                  <a href=/ >
+                                    <button class="btn btn-info mr-2 my-2">More features
+                                    </button>
+                                  </a>
+                                </div>
+                              </div>
+                              <div class="col-lg-5 col-md-6">
+                                <img alt=content src=/assets/img/graph-up.png class=img-fluid>
+                              </div>
+                            </div>
+                          </section>
+                        </main> 
+                      <%- include('../partials/home/footer') %> 
+                        <%- include('../partials/home/end') %>

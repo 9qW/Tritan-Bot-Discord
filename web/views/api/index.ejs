@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"> 
+  <head> 
+    <%- include('../partials/home/head') %> 
+      </head> 
+    <header> 
+      <%- include('../partials/home/nav') %> 
+          <div class="bg-dark landing-sass-header-content" style=background-image:url(/assets/img/header-bg2.png)> 
+          <div class="container"> 
+          </div>
+        </div>
+        <div class="text-center landing-sass-header-img-wrapper">
+          <img src="/assets/img/api.webp" alt="header-img" class="img-fluid" width="450px">
+        </div>
+        </header> 
+      <main> 
+        <div class="container"> 
+          <section class="mb-5"> 
+            <center> 
+              <h4 class="text-muted">V1
+              </h4> 
+              <br>
+              <li>
+                <a href='/admin/stats'>Staff Only: Bot Stats
+                </a>
+              </li>
+              <li>
+                <a href='/admin/channels'>Staff Only: Cached Channels
+                </a>
+              </li>
+              <li>
+                <a href='/admin/users'>Staff Only: Cached Users
+                </a>
+              </li>
+              <li>
+                <a href='/api/v1/user/ID'>Staff Only: Data Request
+                </a>
+              </li>
+              <br>
+              <li>
+                <a href='/api/v1/me'>My Data
+                </a>
+              </li>
+              <li>
+                <a href='/api/v1/guild/:GuildID'>Guild Data
+                </a>
+              </li>
+              <li>
+                <a href='/api/v1/infraction/:InfractionID'>Infraction Data
+                </a>
+              </li>
+              </div>
+          </section> 
+          </main> 
+        <%- include('../partials/home/footer') %> 
+          <%- include('../partials/home/end') %>

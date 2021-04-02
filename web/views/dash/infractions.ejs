@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include( '../partials/home/head') %>
+      </head>
+    <header>
+      <%- include( '../partials/home/nav') %>
+          <div class="bg-dark landing-sass-header-content" style=background-image:url(/assets/img/header-bg2.png)> 
+          <div class="container">
+            <div class="container-fluid">
+              <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item">
+                  <a href="/">Home
+                  </a>
+                </li>
+                <li class="breadcrumb-item" style="color:white">
+                  <a href='/dashboard'>Dashboard
+                  </a>
+                </li>
+              </ol>
+              <%- include( '../partials/cards') %>
+                </div>
+            </div>
+          </div>
+          </header>
+        <br>
+        <main>
+          <div class="container">
+            <section class="mb-5">
+              <div class="row">
+                <div class="col">
+                  <style>.server-button{
+                    text-decoration: none !important;
+                    color: white;
+                    background-color: #7289DA;
+                    padding: 10px;
+                    border-radius: 3px;
+                    transition: 0.5s all ease;
+                    float: right;
+                    margin-left: 22px}
+                    .server-button:hover{
+                      text-decoration: none !important;
+                      color: white;
+                      background-color: #1d2124;
+                      padding: 10px;
+                      border-radius: 5px;
+                    }
+                    .server-name{
+                      padding-top: 25px;
+                      padding-left: 15px;
+                    }
+                  </style>
+                  </head>
+                <div class="container">
+                  <div id="layoutSidenav_content">
+                    <main>
+                      <div class="card mb-4">
+                        <div class="card-body> This page will allow you to view and search through your guild's infractions. </div></div><div class=" card mb-4 "> <div class="card-header " style="color: white; background-color: #2b2e4a; "> <i class="fa fa-table " aria-hidden="true "></i>Guild Infractions </div><div class="card-body"> <div class="table-responsive"> <table class="table table" id="dataTable" width="100%" cellspacing="0"> <thead> <tr> <th>ID</th> <th>Target Name</th> <th>Target ID</th> <th>Moderator Name</th> <th>Moderator ID</th> <th>Type</th> <th>Reason</th> <th>Time</th> </tr></thead> <tbody> <% for(i of inf){%> <tr> <td><%=i._id %></td><td><%=i.TargetTag %></td><td><%=i.TargetID %></td><td><%=i.ModeratorTag %></td><td><%=i.ModeratorID %></td><td><%=i.InfractionType %></td><td><%=i.Reason %></td><td><%=i.Time %></td></tr><%}%> </tbody> </table> </div></div></div></div></div></main> <%- include('../partials/home/footer') %> <%- include('../partials/home/end') %>

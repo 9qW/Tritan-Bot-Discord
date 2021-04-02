@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en"> 
+  <head> 
+    <%- include('../partials/home/head') %> 
+      </head> 
+    <header> 
+      <%- include('../partials/home/nav') %> 
+        <div class="bg-dark landing-sass-header-content" style=background-image:url(/assets/img/header-bg2.png)> 
+          <div class="container"> 
+            <div class="container-fluid"> 
+              <ol class="breadcrumb mb-4"> 
+                <li class="breadcrumb-item"> 
+                  <a href="/">Home 
+                  </a> 
+                </li>
+                <li class="breadcrumb-item" style="color:white"> 
+                  <a href='/dashboard'>Dashboard 
+                  </a> 
+                </li>
+              </ol> 
+              <% if(savedChanges){%> 
+                <div class="col-mb-4"> 
+                  <div class="alert alert-success alert-dismissible fade show mb-12" role="alert"> 
+                    <i data-feather="alert-circle" class="mr-2"> 
+                    </i> Your embed has been posted! 
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"> 
+                      <span aria-hidden="true">&times; 
+                      </span> 
+                    </button> 
+                  </div>
+                </div>
+                <%}%> 
+                  <% if(error){%> 
+                    <div class="col-mb-4"> 
+                      <div class="alert alert-danger alert-dismissible fade show mb-12" role="alert"> 
+                        <i data-feather="alert-circle" class="mr-2"> 
+                        </i> Your embed has been not been posted, please try again later. 
+                        <br>
+                        <% err %> 
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close"> 
+                            <span aria-hidden="true">&times; 
+                            </span> 
+                          </button> 
+                          </div>
+                      </div>
+                      <%}%> 
+                        <%- include('../partials/cards') %> 
+                          </div>
+                        </div>
+                    </div>
+                    </header> 
+                  <main> 
+                    <div class="container"> 
+                      <section class="mb-5"> 
+                        <div class="row"> 
+                          <div class="col"> 
+                            <style>.server-button{
+                              text-decoration: none !important;
+                              color: white;
+                              background-color: #7289DA;
+                              padding: 10px;
+                              border-radius: 3px;
+                              transition: 0.5s all ease;
+                              float: right;
+                              margin-left: 22px}
+                              .server-button:hover{
+                                text-decoration: none !important;
+                                color: white;
+                                background-color: #1d2124;
+                                padding: 10px;
+                                border-radius: 5px;
+                              }
+                              .server-name{
+                                padding-top: 25px;
+                                padding-left: 15px;
+                              }
+                            </style> 
+                            </head> 
+                          <div id="layoutSidenav_content"> 
+                            <main> 
+                              <br>
+                              <div class="card mb-4"> 
+                                <div class="card-header" style="color: white; background-color: #2b2e4a;"> 
+                                  <i class="fa fa-sliders" aria-hidden="true"> 
+                                  </i> Embed Generator
+                                </div>
+                                <div class="card-body"> 
+                                  <div class="table-responsive"> 
+                                    <form method="POST" action="/dashboard/<%=guild %>/embed-generator"> 
+                                      <div class="row"> 
+                                        <div class="col-md-6"> 
+                                          <div class="lead-demo"> 
+                                            <div class="form-group"> 
+                                              <div class="form-group"> 
+                                                <p>Title: 
+                                                  <input type="text" class="form-control" name="title" required> 
+                                                </p>
+                                              </div>
+                                            </div>
+                                            <div class="form-group"> 
+                                              <div class="form-group"> 
+                                                <p>Description: 
+                                                  <textarea  type="text" class="form-control" name="description" required> 
+                                                  </textarea>
+                                                </p>
+                                              </div>
+                                            </div>
+                                            <div class="form-group"> 
+                                              <div class="form-group"> 
+                                                <p>Author: 
+                                                  <input type="text" class="form-control" name="author" value='<%=user.username + "#" + user.discriminator %>'> 
+                                                </p>
+                                              </div>
+                                            </div>
+                                            <div class="form-group"> 
+                                              <div class="form-group"> 
+                                                <p>Author Thumbnail URL: 
+                                                  <input type="text" class="form-control" name="authorThumbnailURL" value='https://cdn.discordapp.com/avatars/<%=user.id %>/<%=user.avatar %>'> 
+                                                </p>
+                                              </div>
+                                            </div>
+                                            <div class="form-group"> 
+                                              <div class="form-group"> 
+                                                <p>Color: (Hex Code) 
+                                                  <input type="text" class="form-control" name="color" value="#7289DA"> 
+                                                </p>
+                                              </div>
+                                            </div>
+                                            <div class="form-group"> 
+                                              <div class="form-group"> 
+                                                <p>Image URL: 
+                                                  <input type="text" class="form-control" name="imageURL"> 
+                                                </p>
+                                              </div>
+                                            </div>
+                                            <div class="form-group"> 
+                                              <div class="form-group"> 
+                                                <p>Thumbnail URL: 
+                                                  <input type="text" class="form-control" name="thumbmailURL"> 
+                                                </p>
+                                              </div>
+                                            </div>
+                                            <div class="form-group"> 
+                                              <div class="form-group"> 
+                                                <p>Footer: 
+                                                  <input type="text" class="form-control" name="footer"> 
+                                                </p>
+                                              </div>
+                                            </div>
+                                            <div class="form-group"> 
+                                              <div class="form-group"> 
+                                                <p>Footer Thumbnail URL: 
+                                                  <input type="text" class="form-control" name="footerThumbnailURL"> 
+                                                </p>
+                                              </div>
+                                            </div>
+                                            <div class="lead-demo"> 
+                                              <div class="form-group"> 
+                                                <div class="form-group"> 
+                                                  <p> Channel: 
+                                                    <select name="channel" class="form-control" required> 
+                                                      <option> 
+                                                      </option> 
+                                                      <% discord.guilds.cache.get(guild).channels.cache.filter(c=> c.type==="text").forEach(c=>{%> 
+                                                        <option value="<%=c.id %>"> 
+                                                          <%=c.name %> 
+                                                            </option> 
+                                                          <%}) %> 
+                                                            </select> 
+                                                        </p>
+                                                      </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="col-md-6"> 
+                                            </div>
+                                            <button type="submit" class="btn btn-secondary" id='submit'> Submit 
+                                            </button> 
+                                          </div>
+                                        </div>
+                                      </div>
+                                      </div>
+                                  </div>
+                                </div>
+                                </form> 
+                              </div>
+                          </div>
+                          </main> 
+                        <%- include('../partials/home/footer') %> 
+                          <%- include('../partials/home/end') %>

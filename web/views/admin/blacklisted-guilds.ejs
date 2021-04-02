@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en"> 
+  <head> 
+    <%- include('../partials/home/head') %> 
+      </head> 
+    <header> 
+      <%- include('../partials/home/nav') %> 
+          <div class="bg-dark landing-sass-header-content" style=background-image:url(/assets/img/header-bg2.png)> 
+          <div class="container"> 
+          </div>
+        </div>
+        </header> 
+      <main> 
+        <div class="container"> 
+          <section class="mb-5"> 
+            <div class="row"> 
+              <div class="col"> 
+                <style>.server-button{
+                  text-decoration: none !important;
+                  color: white;
+                  background-color: #7289DA;
+                  padding: 10px;
+                  border-radius: 3px;
+                  transition: 0.5s all ease;
+                  float: right;
+                  margin-left: 22px}
+                  .server-button:hover{
+                    text-decoration: none !important;
+                    color: white;
+                    background-color: #1d2124;
+                    padding: 10px;
+                    border-radius: 5px;
+                  }
+                  .server-name{
+                    padding-top: 25px;
+                    padding-left: 15px;
+                  }
+                </style> 
+                </head> 
+              <div class="container"> 
+                <div id="layoutSidenav_content"> 
+                  <main> 
+                    <div class="container-fluid"> 
+                      <ol class="breadcrumb mb-4"> 
+                        <li class="breadcrumb-item">
+                          <a href="/">Home
+                          </a>
+                        </li>
+                        <li class="breadcrumb-item" style="color:white">
+                          <a href='/admin'>Developer Panel
+                          </a>
+                        </li>
+                      </ol> 
+                      <div class="card mb-4"> 
+                        <div class="card-header" style="color: white; background-color: #2b2e4a;"> 
+                          <i class="fa fa-wrench" aria-hidden="true">
+                          </i> Developer Shortcuts 
+                        </div>
+                        <center> 
+                          <p>Hi 
+                            <%=user.username %>! Welcome to the Developer Portal 
+                              </p>
+                            <th>
+                              <a class='button' href='/admin/stats'>API: Bot Stats
+                              </a> 
+                              <br>
+                            <th>
+                              <a class='button' href='/admin/users'> API: Cached Users
+                              </a> 
+                              <br>
+                            <th>
+                              <a class='button' href='/admin/channels'>API: Cached Channels
+                              </a> 
+                              <br>
+                            <th>
+                              <a class='button' href='/dashboard'>My Guilds
+                              </a>
+                            </th> 
+                          </th> 
+                        </th> 
+                      </center> 
+                    </div>
+                  <div class="card mb-4"> 
+                    <div class="card-header" style="color: white; background-color: #2b2e4a;"> 
+                      <i class="fa fa-key" aria-hidden="true">
+                      </i> Blacklisted Guilds 
+                    </div>
+                    <center> 
+                      <div class="table-responsive "> 
+                        <table class="table table " id="dataTable" width="100% " cellspacing="0 "> 
+                          <thead> 
+                            <tr> 
+                              <th>Guild Name
+                              </th> 
+                              <th>Guild ID
+                              </th> 
+                              <th>Blacklist Status
+                              </th> 
+                              <th>Manage
+                              </th> 
+                              <th>Manage
+                              </th> 
+                            </tr>
+                          </thead> 
+                          <tbody> 
+                            <% for(i of guild){%> 
+                              <tr> 
+                                <td> 
+                                  <%=i.guildName %> 
+                                    </td>
+                                <td> 
+                                  <%=i.guildID %> 
+                                    </td>
+                                <td> 
+                                  <%=i.is_blacklisted %> 
+                                    </td>
+                                <td>
+                                  <a class='server-button' style='color: white; background-color: #2b2e4a;' href='/admin/flags/<%=i.guildID %>'>Manage Flags
+                                  </a>
+                                </td>
+                                <td>
+                                  <a class='server-button' style='color: white; background-color: #2b2e4a;' href='/api/v1/guild/<%=i.guildID %>'>Manage Data
+                                  </a>
+                                </td>
+                              </tr>
+                              <%}%> 
+                                </tbody> 
+                              </table> 
+                          </center> 
+                      </div>
+                      </div>
+                  </div>
+                  </main> 
+                <%- include('../partials/home/footer') %> 
+                  <%- include('../partials/home/end') %>

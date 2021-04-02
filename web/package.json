@@ -1,0 +1,45 @@
+{
+  "name": "tritan-dashboard",
+  "version": "5.0.1",
+  "author": "Dylan James <gitlab/dylanjames>",
+  "description": "Tritan Bot is a general purpose bot with many high quality features, including a dashboard!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Tritan",
+    "Bot",
+    "Discord",
+    "Discord",
+    "Bot",
+    "Discord.js",
+    "Sharding",
+    "Dashboard",
+    "API",
+    "Utilities",
+    "Moderation",
+    "Music",
+    "Fun",
+    "Gifs",
+    "Games"
+  ],
+  "license": "CREDIT",
+  "dependencies": {
+    "@sentry/node": "^6.0.1",
+    "bufferutil": "^4.0.3",
+    "chalk": "^4.1.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dblapi.js": "^2.4.1",
+    "discord.js": "^12.5.1",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "express-set-domain": "^1.0.1",
+    "memorystore": "^1.6.4",
+    "mongoose": "^5.11.13",
+    "passport": "^0.4.1",
+    "passport-discord": "^0.1.4"
+  }
+}

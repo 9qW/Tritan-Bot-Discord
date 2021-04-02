@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en"> 
+  <head> 
+    <%- include('../partials/home/head') %> 
+      </head> 
+    <header> 
+      <%- include('../partials/home/nav') %> 
+          <div class="bg-dark landing-sass-header-content" style=background-image:url(/assets/img/header-bg2.png)> 
+          <div class="container"> 
+          </div>
+        </div>
+        </header> 
+      <main> 
+        <div class="container"> 
+          <section class="mb-5"> 
+            <div class="row"> 
+              <div class="col"> 
+                <style>.server-button{
+                  text-decoration: none !important;
+                  color: white;
+                  background-color: #2b2e4a;
+                  padding: 10px;
+                  border-radius: 3px;
+                  transition: 0.5s all ease;
+                  float: right;
+                  margin-left: 22px}
+                  .server-button:hover{
+                    text-decoration: none !important;
+                    color: white;
+                    background-color: #1d2124;
+                    padding: 10px;
+                    border-radius: 5px;
+                  }
+                  .server-name{
+                    padding-top: 25px;
+                    padding-left: 15px;
+                  }
+                </style> 
+                </head> 
+              <div class="container"> 
+                <div id="layoutSidenav_content"> 
+                  <main> 
+                    <div class="container-fluid"> 
+                      <ol class="breadcrumb mb-4"> 
+                        <li class="breadcrumb-item">
+                          <a href="/">Home
+                          </a>
+                        </li>
+                        <li class="breadcrumb-item" style="color:white">
+                          <a href='/admin'>Developer Panel
+                          </a>
+                        </li>
+                      </ol> 
+                      <div class="card mb-4"> 
+                        <div class="card-header" style="color: white; background-color: #2b2e4a;"> 
+                          <i class="fa fa-wrench" aria-hidden="true">
+                          </i> Developer Shortcuts 
+                        </div>
+                        <center> 
+                          <p>Hi 
+                            <%=user.username %>! Welcome to the Developer Portal 
+                              </p>
+                            <th>
+                              <a class='button' href='/admin/stats'>API: Bot Stats
+                              </a> 
+                              <br>
+                            <th>
+                              <a class='button' href='/admin/users'> API: Cached Users
+                              </a> 
+                              <br>
+                            <th>
+                              <a class='button' href='/admin/channels'>API: Cached Channels
+                              </a> 
+                              <br>
+                            <th>
+                              <a class='button' href='/admin/blacklisted-guilds'>Blacklisted Guilds
+                              </a> 
+                              <br>
+                            <th>
+                              <a class='button' href='/dashboard'>My Guilds
+                              </a>
+                            </th> 
+                          </th> 
+                        </th> 
+                      </center> 
+                    </div>
+                  <div class="card mb-4"> 
+                    <div class="card-header" style="color: white; background-color: #2b2e4a;"> 
+                      <i class="fa fa-line-chart" aria-hidden="true">
+                      </i> Developer Stats 
+                    </div>
+                    <div class="card-body"> 
+                      <center> 
+                        <canvas id="myChart" width="400" height="400">
+                        </canvas> 
+                      </center> 
+                      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js">
+                      </script> 
+                      <script>var ctx=document.getElementById('myChart');
+                        var myChart=new Chart(ctx,{
+                          type: 'bar', data:{
+                            labels: ['Guilds', 'Support Server Members', 'Channels', 'Users'], datasets: [{
+                              label: "Tritan Bot", data: [ <%=guild_size %>, <%=supportserver_size %>, <%=channel_size %>, <%=user_size %>], backgroundColor: [ 'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'], borderColor: [ 'rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'], borderWidth: 1}
+                                                                                                         ]}
+                          , options:{
+                            maintainAspectRatio: false, layout:{
+                              padding:{
+                                left: 10, right: 25, top: 25, bottom: 0}
+                            }
+                            , legend:{
+                              display: false}
+                            , tooltips:{
+                              backgroundColor: "#2c2f34", bodyFontColor: "#FFF", titleMarginBottom: 10, titleFontColor: '#FFF', titleFontSize: 14, borderColor: '#2c2f34', borderWidth: 1, xPadding: 15, yPadding: 15, displayColors: false, intersect: false, mode: 'index', caretPadding: 10,}
+                          }
+                        }
+                                             );
+                      </script> 
+                    </div>
+                  </div>
+                  <div class="card mb-4"> 
+                    <div class="card-header" style="color: white; background-color: #2b2e4a;"> 
+                      <i class="fa fa-key" aria-hidden="true">
+                      </i> Developer Guild Access 
+                    </div>
+                    <center> 
+                      <div class="table-responsive "> 
+                        <table class="table table " id="dataTable" width="100% " cellspacing="0 "> 
+                          <thead> 
+                            <tr> 
+                              <th>Guild Name
+                              </th> 
+                              <th>Guild ID
+                              </th> 
+                              <th>Actions
+                              </th> 
+                            </tr>
+                          </thead> 
+                          <tbody> 
+                            <% for(i of guild){%> 
+                              <tr> 
+                                <td> 
+                                  <%=i.guildName %> 
+                                  
+                                  <% if (i.badges) { %>
+                                    <span class="badge badge-soft-info">
+                                      <%=i.badges %>
+                                        </span>
+                                      </td>
+                                      <% } %>
+                                    <td> 
+                                      <%=i.guildID %> 
+                                        </td>
+                                    <td>
+                                      <a class='server-button' style='color: white; background-color: #2b2e4a;' href='/dashboard/<%=i.guildID %>'>Manage
+                                      </a>
+                                    </td>
+                                    </tr>
+                                  <%}%> 
+                                    </tbody> 
+                              </table> 
+                              </center> 
+                          </div>
+                      </div>
+                      </div>
+                    </main> 
+                  <%- include('../partials/home/footer') %> 
+                    <%- include('../partials/home/end') %>
