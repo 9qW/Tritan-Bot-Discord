@@ -1,5 +1,7 @@
 ## Contributing Developers
 
+This project wouldn't have even been a thought without these very amazing friends <3
+
 - [Dylan James](https://github.com/dylanjamesdev)
 
 - [Windows](https://github.com/windowsCMD)
