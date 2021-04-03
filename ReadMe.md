@@ -174,4 +174,4 @@ Maybe. Feel free to submit PRs and issues, but unless they are explicitly bug fi
 
 - Tritan Bot is currently being maintained by [Team Tritan](https://gitlab.com/team-tritan) and their team of developers.
 - Created by Dylan James.
-- Contributed to by Windows, Crafterzman, and MaximKing.
+- Contributed to by Windows, Crafterzman, Nirlep, and MaximKing.
