@@ -25,7 +25,7 @@ Tritan Bot </h2>
 
 <h2> Important: Read Me</h2>
 
-You can self-host Tritan Bot, however you must follow the licensing by not changing any original credits- as well as giving credit in your version of the bot via embed footers, website footers, and any other place deemed worthy by the creator. I have no problem making my creation open souce for learning purposes, as long as you contribute for any changes via a pull request and you give credit to this github repo. I decided to make this open source to teach people, so please just try to learn from the code instead of just copying it ;-;. 
+You can self-host Tritan Bot, however you must follow the licensing by not changing any original credits- as well as giving credit in your version of the bot via embed footers, website footers, etc. I have no problem with use of this open souce project for learning purposes, as long as you contribute for any nias changes via a pull request and you give credit to this github repo. I decided to make Tritan open source to teach people, so please just try to learn from the code instead of just copying it ;-;. 
 
 <h2>Can I add Tritan Bot to my server?</h2>
 
@@ -172,6 +172,6 @@ Maybe. Feel free to submit PRs and issues, but unless they are explicitly bug fi
 
 <h2> Credits </h2>
 
-- Tritan Bot is currently being maintained by [Team Tritan](https://gitlab.com/team-tritan) and their team of developers.
+- Tritan Bot is currently being maintained by [Team Tritan](https://gitlab.com/team-tritan) and their team of contributing developers.
 - Created by Dylan James.
 - Contributed to by Windows, Crafterzman, Nirlep, and MaximKing.
