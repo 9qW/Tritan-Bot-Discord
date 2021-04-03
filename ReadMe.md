@@ -25,7 +25,7 @@ Tritan Bot </h2>
 
 <h2> Important: Read Me</h2>
 
-You can self-host Tritan Bot, however you must follow the licensing by not changing any original credits- as well as giving credit in your version of the bot via embed footers, website footers, and any other place deemed worthy by the creator. The creator has full discression to take away privileges to host the bot yourself, and if you fail to comply with the licensing legal actions may be taken. I have no problem making my creation open souce for learning purposes, as long as you contribute for any changes via a pull request and you give credit to my github page as the creator of the bot and website. 
+You can self-host Tritan Bot, however you must follow the licensing by not changing any original credits- as well as giving credit in your version of the bot via embed footers, website footers, and any other place deemed worthy by the creator. I have no problem making my creation open souce for learning purposes, as long as you contribute for any changes via a pull request and you give credit to my github page as the creator of the bot and website. 
 
 <h2>Can I add Tritan Bot to my server?</h2>
 
