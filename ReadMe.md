@@ -116,8 +116,8 @@ Probably not. Tritan Bot has enough moving pieces that running a local version i
 <h2> Getting Started  - Standalone</h2>
 
 ```
-git clone https://gitlab.com/team-tritan/tritan-bot-v5.git
-cd tritan-bot
+git clone https://github.com/dylanjamesdev/Tritan-Bot-Discord.git
+cd Tritan-Bot-Discord
 cd bot
 npm i
 cd ../ && cd web
@@ -135,7 +135,8 @@ You will need to fill in everything that is blank in the `config` directory. It 
 After installation finishes you can use pm2 to run this bot and web dashboard seperately. You must start these scripts from within their own directory, using `node ../../../index.js` will NOT work!
 
 ```
-pm2 start clusters.js --name Tritan-Sharding
+cd ../bot
+pm2 start index.js --name Tritan-Sharding
 -- pm2 stop Tritan-Sharding
 -- pm2 restart Tritan-Sharding
 
@@ -163,8 +164,8 @@ pm2 startup
 
 Maybe. Feel free to submit PRs and issues, but unless they are explicitly bug fixes that have good documentation and clean code, I likely won't merge. Features will not be accepted through PR unless stated elsewhere. Do not submit feedback on this repository, the server is the right place for that. PRs focused around the frontend and web panel are more likely to be accepted.
 
-1. [Fork the repository](https://gitlab.com/team-tritan/tritan-bot-v5/fork)
-2. Clone your fork: `git clone https://gitlab.com/your-username/tritan-bot.git`
+1. [Fork the repository](https://github.com/dylanjamesdev/Tritan-Bot-Discord.git)
+2. Clone your fork: `git clone https://github.com/your-username/Tritan-Bot-Discord.git`
 3. Create your feature branch: `git checkout -b my-new-feature`
 4. Commit your changes: `git commit -am 'Add some feature'`
 5. Push to the branch: `git push origin my-new-feature`
