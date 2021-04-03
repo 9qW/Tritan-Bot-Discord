@@ -1,4 +1,4 @@
-## Contributing Developers:
+## Contributing Developers
 
 - [Dylan James](https://github.com/dylanjamesdev)
 
